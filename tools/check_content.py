@@ -182,9 +182,9 @@ def check_scripts(r):
         text = open(full, encoding="utf-8").read()
         if "WORK=" not in text:
             r.error(name, "нет переменной WORK")
-        if 't "All' not in text and "t \"" not in text:
-            r.warn(name, "похоже, нет функции перевода t()")
-        checks = text.count("\ncheck '")
+        if not re.search(r"\b[tT]\(\)\s*\{", text) and 't "' not in text:
+            r.warn(name, "похоже, нет функции перевода")
+        checks = len(re.findall(r"(?m)^check\b", text))
         if checks == 0:
             r.error(name, "нет ни одной проверки")
         elif checks < 4:
