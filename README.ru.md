@@ -8,7 +8,9 @@
 
 ## Начните отсюда
 
+- [С чего начать: что такое git, GitHub и Codespaces](docs/start-here.ru.md)
 - [Трек Level 0 — с нуля](tracks/level-0/ru.md)
+- [Трек Level 1 — bash, автоматизация, процессы, сеть](tracks/level-1/ru.md)
 - [Как выполнять практику в Codespace](docs/codespaces/ru.md)
 - [Проекты](projects/ru.md)
 
