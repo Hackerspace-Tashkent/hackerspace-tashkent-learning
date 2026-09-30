@@ -90,7 +90,7 @@ konflikt ko'rsatadi. Bu buzilgan emas, bu «nima qoladi?» degan qo'lda qaror.
 
 Rasmiy ravishda PR «birlashtirish so'rovi» emas, balki **tekshirish so'rovi**.
 Birlashtirish umuman bo'lmasligi mumkin: odam o'zgartirish so'raydi. Shuning
-uchun Merge tugmasiдан ko'ra tavrif muhimroq.
+Merge tugmasidan koʻra tavrif muhimroq.
 
 Tavsif odamga murojaat qiladi. Kamida:
 

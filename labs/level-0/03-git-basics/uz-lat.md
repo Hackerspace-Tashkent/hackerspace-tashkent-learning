@@ -53,7 +53,7 @@ git commit -m 'Add gitignore'
 
 > **Izoh.** Uchta holat: ish katalogi, indeks (`git add`), repository (`git commit`).
 
-## Амалиёт
+## Amaliyot
 
 1. `lab-work` yarating va u yerda `git init` bajariring.
 2. `notes.md` yarating va kamida uchta commit qiling, har biriga ma'nomli xabar yozing.

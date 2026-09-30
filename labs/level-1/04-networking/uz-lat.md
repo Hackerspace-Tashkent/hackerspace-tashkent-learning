@@ -1,8 +1,8 @@
-# 8-dars. Тармоқ
+# 8-dars. Tarmoq
 
 Server — bu shunchaki portda tinglayotgan dastur. Uni ishga tushirib, unga murojaat qila boshlaganingizda, tarmoq veryondan chiqadi.
 
-## Манзиллар ва портлар
+## Manzillar va portlar
 
 ```bash
 ip addr              # адреса всех интерфейсов
@@ -13,7 +13,7 @@ ss -tlnp             # кто слушает порты
 
 `127.0.0.1` — bu `localhost`, o'zingiz bilan gaplashish. Port — 1 dan 65535 gacha raqam, tinglovchilar orasidan bitta dasturni tanlaydi.
 
-## Серверни ишга тушириш
+## Serverni ishga tushirish
 
 ```bash
 python3 -m http.server 8000 --bind 127.0.0.1
@@ -21,7 +21,7 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 1024 dan katta port tanlang — undan kichisi root talab qiladi. `--bind 127.0.0.1` serverini faqat shu mashinada ochib qoldiradi, bu xavfsiz standart.
 
-## Серверга murojaat
+## Serverga murojaat
 
 ```bash
 curl -I http://127.0.0.1:8000     # только заголовки
@@ -36,9 +36,9 @@ echo $?                                # код: 0 — связь есть
 - `403` taqiqlangan
 - `000` ulanish muvaffaqiyatsiz
 
-## Манзиллар ўрнига номлар
+## Manzillar oʻrniga nomlar
 
-Хост — manzilga ishora qiluvchi nom. `/etc/hosts` kichik mahalliy ro'yxat, DNS so'ralishidan oldin tekshiriladi.
+Host — manzilga ishora qiluvchi nom. `/etc/hosts` kichik mahalliy roʻyxat, DNS soʻralishidan oldin tekshiriladi.
 
 ```bash
 echo "127.0.0.1  mysite.local" | sudo tee -a /etc/hosts

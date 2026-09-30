@@ -57,7 +57,7 @@ print("lines:", count)
 
 > **Izoh.** Xatolar normal holat. Traceback'ning oxirgi qatorini o'qing — u odatda nimani xato ekanini aniq aytadi.
 
-## Амалиёт
+## Amaliyot
 
 1. `lab-work` yarating va unga kiring.
 2. `greet.py` yozing: ism so'raydi va salomlaydi. Bajarishga ruxsat bering.

@@ -304,6 +304,35 @@ def check_external_links(r, limit=None):
             r.error(name, "HTTP %s" % (code or "нет ответа"))
 
 
+def check_script_mixing(r):
+    """В latin-версиях не должно оставаться кириллицы.
+
+    Обратное не проверяем: в узбекской кириллице легитимно много
+    латинских терминов (Codespaces, Git, check.sh), и такая проверка
+    даёт только ложные срабатывания. Реальный режим ошибки один —
+    русский или кириллический заголовок, забытый в latin-версии.
+    """
+    for p in walk("uz-lat.md"):
+        text = open(os.path.join(ROOT, p), encoding="utf-8").read()
+        name = "кириллица в latin-версии: " + p
+        bad = []
+        in_code = False
+        for i, line in enumerate(text.split("\n"), 1):
+            if line.startswith("```"):
+                in_code = not in_code
+                continue
+            if in_code or "http" in line:
+                continue
+            if "](README" in line:
+                continue          # переключатель языков: названия как есть
+            if re.search(r"[Ѐ-ӿ]", line):
+                bad.append(i)
+        if bad:
+            r.warn(name, "строки: %s" % bad[:8])
+        else:
+            r.ok(name)
+
+
 def main():
     r = Report()
     check_encoding(r)
@@ -313,6 +342,7 @@ def main():
     check_internal_links(r)
     check_structure_alignment(r)
     check_scripts(r)
+    check_script_mixing(r)
     check_forbidden(r)
 
     if "--links" in sys.argv:

@@ -7,7 +7,7 @@ To'rtta dars, har biriga amaliyot. Hammasi brauzerdagi Codespace'da bajariladi.
 - [3-dars. Git dan boshlash](03-git-basics/uz-lat.md) — `init`, `add`, `commit`, tarmoqlar, `.gitignore`
 - [4-dars. Birinchi skript](04-first-script/uz-lat.md) — o'zgaruvchilar, tsikllar, fayllar, argumentlar
 
-## Амалиёт қандай ўтади
+## Amaliyot qanday oʻtadi
 
 1. Darsni o'qing.
 2. Amaliyot papkasini Codespace'da oching.

@@ -78,9 +78,9 @@ echo "name=$name"
 echo "age=$age"
 ```
 
-## Чиқим кодлари
+## Chiqim kodlari
 
-Ҳар бир буйруқ рақам билан тугайди: 0 — муваффақият, бошқаси — хато. `$?` охирги буйруқ кодини сақлайди.
+Har bir buyruq raqam bilan tugaydi: 0 — muvaffaqiyat, boshqasi — xato. `$?` oxirgi buyruq kodini saqlaydi.
 
 ```bash
 set -e   # остановиться при первой ошибке
@@ -90,7 +90,7 @@ set -o pipefail   # ошибка в пайпе, если кто-то в нём �
 
 > **Izoh.** `set -e` ning o'tkir burchaklari bor: `if` ichida, manfiy shartda va quvurning oxirgi buyrug'idan tashqarida ishlamaydi.
 
-## Амалиёт
+## Amaliyot
 
 1. Bu papka ichida `lab-work` katalogini yarating.
 2. `greet.sh` yozing: ismni birinchi argument sifatida oladi va salomlaydi. Argument bo'lmasa, stderr'ga ishlatish ko'rsatmasini chiqarib, 1 bilan chiqadi.

@@ -1,8 +1,8 @@
-# 7-dars. Жараёнлар ва хизматлар
+# 7-dars. Jaraenlar va xizmatlar
 
-Ҳар бир ишлаётган дастур — рақамли жараён. Уларни кўриш, фонга ўтказиш ва одоблик тўхтатиш — ишлаётган машина ва тушуmsiz машина ўртасидаги фарқ.
+Har bir ishlayotgan dastur — raqamli jarayon. Ularni koʻrish, fonga oʻtkazish va odatdagina toʻxtatish — ishlayotgan mashina va tushunmas mashina orasidagi farq.
 
-## Жараёнларни кўриш
+## Jaraenlarni koʻrish
 
 ```bash
 ps                  # процессы текущего терминала
@@ -12,9 +12,9 @@ top                  # обновляется live, q — выход
 pgrep -f "python"    # найти по имени
 ```
 
-Ҳар бир жараённинг `/proc` да шу рақамда каталоги бор. Бу дастур ўзи ҳақида нима деганини кўришнинг ҳалол йўли.
+Har bir jarayonning `/proc` da shu raqamda katalogi bor. Bu dastur oʻzi haqida nima deganini koʻrishning halol yoʻli.
 
-## Фон ва тўхтатиш
+## Fon va toʻxtatish
 
 ```bash
 sleep 300 &        # запустить в фоне
@@ -28,7 +28,7 @@ kill -9 12345       # убить немедленно (SIGKILL)
 
 > **Izoh.** K harfi katta emas `kill` — hazil emas: oddiy `kill` yaxshilab so'raydi. `-9` ushlanmaydi, dastur tozalashga ulgurmaydi.
 
-## Сигнални ушлаб олиш
+## Signalni ushlab olish
 
 `trap` skriptga to'xtatilganda o'z tozalashini bajarishga imkon beradi. Aks holda yarim yozilgan fayl yarim qoladi.
 
@@ -48,7 +48,7 @@ sleep 30
 
 > **Izoh.** Faqat logga yozib qaytadigan trap yetarli emas: sikl davom etaveradi va jarayon tugamaydi. Yozing va handler ichida `exit 0` qiling. Yana eslab qoling: bash trapni joriy buyruq tugagandan keyin bajaradi — `sleep 300` ichidagi skript `kill` ni besh daqiqaga e'tiborsiz qoldiradi. Shuning uchun amaliyotda qisqa pauzalar ishlatiladi.
 
-## systemd ва хизматлар
+## systemd va xizmatlar
 
 Haqiqiy Linux mashinasida `systemd` dasturlarni yuklanganda ishga tushiradi, qulangandan keyin qayta ishga tushiradi va ularning chiqimini yig'adi. Xizmat unit fayli bilan tasvirlanadi.
 
@@ -71,7 +71,7 @@ Yuklash — `systemctl daemon-reload`, ishga tushirish — `systemctl start repo
 
 > **Izoh.** Codespace — konteyner, u yerda `systemd` PID 1 emas va `systemctl status` ishlamaydi. Shuning uchun amaliyot xizmat yurishini emas, unit faylining to'g'riligini tekshiradi.
 
-## Амалиёт
+## Amaliyot
 
 1. `lab-work` katalogini yarating.
 2. `worker.sh` yozing: bir daqiqa siklda ishlaydi, har soniyada `worker.log` ga qator yozadi va TERM signalini trap orqali ushlab, yakuniy qator yozib, so'ng chiqadi.

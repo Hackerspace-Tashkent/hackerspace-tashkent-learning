@@ -45,7 +45,7 @@ nano notes.txt
 
 > **Izoh.** Skriptni to'g'ridan-to'g'ri ishga tushirish uchun bajarish ruxsati kerak: `chmod +x script.sh`.
 
-## Амалиёт
+## Amaliyot
 
 1. `lab-work` yarating va unga kiring.
 2. `secret.txt` fayli yarating va unga `600` ruxsat bering.

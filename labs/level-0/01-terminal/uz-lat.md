@@ -73,7 +73,7 @@ grep -r 'TODO' ~ 2>/dev/null | head
 
 > **Izoh.** Yo'lni to'ldirish uchun Tab bosing. Ko'p yozishni tejaydi.
 
-## Амалиёт
+## Amaliyot
 
 Codespace'da bajaring, keyin `./check.sh` — nimani qilish kerakligini aytadi.
 

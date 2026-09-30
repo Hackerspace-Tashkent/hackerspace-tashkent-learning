@@ -2,9 +2,9 @@
 
 O'zi bajaradigan vazifa — eslab turish kerak bo'lgan vazifadan ancha qimmatli. Bu dars rejimani yoqish va iz qoldirish haqida.
 
-## Чиқим оқимлари
+## Chiqim oqimlari
 
-Ҳар бир буйруқнинг учта оқими бор: натижа учун стандарт чиқим, муаммолар учун хато чиқими ва кирим. `>` файл ёзади, `>>` қўшади, `2>` хатоларни йўналтиради.
+Har bir buyruqning uchta oqimi bor: natija uchun standart chiqim, muammolar uchun xato chiqimi va kirim. `>` fayl yozadi, `>>` qoʻshadi, `2>` xatolarni yoʻnaltiradi.
 
 ```bash
 ls > out.txt          # только stdout, очистит файл
@@ -14,7 +14,7 @@ ls > all.txt 2>&1     # и то и другое в один файл
 ls 2>&1 | grep txt    # ошибки тоже попадут в пайп
 ```
 
-> **Izoh.** Журнал — бул файл, унга қўшиб борса, ҳеч қачон тозаланмайди. `>>` ishlatнг ва ҳар қаторнинг бошига сана қўйинг.
+> **Izoh.** Jurnal — bu fayl, unga qoʻshib borsa, hech qachon tozalanmaydi. `>>` ishlatng va har qatorning boshiga sana qoʻying.
 
 ```bash
 #!/usr/bin/env bash
@@ -40,7 +40,7 @@ cron'ga hech qachon pochta yubormaslik. Ikkala oqimni jurnal fayliga yo'naltirin
 */10 * * * * /home/me/report.sh >> /home/me/report.log 2>&1
 ```
 
-## Режани таҳрирлаш
+## Rejani tahrirlash
 
 ```bash
 crontab -l     # показать текущие задачи
@@ -52,7 +52,7 @@ Crontab — bu shunchaki matn fayl, har satrda bitta vazifa. `crontab myfile` un
 
 > **Izoh.** Codespace'da `cron` daemonsi ishlamaydi, shuning uchun o'rnatilgan vazifalar o'z-o'zidan ishga tushmaydi. Amaliyot fayl bilan ishlaydi: rejani yozing va fayl to'g'riligini tekshiring.
 
-## Амалиёт
+## Amaliyot
 
 1. `lab-work` katalogini yarating.
 2. `report.sh` yozing: har bir ishga tushirilishda `run.log` ga sana bilan bitta qator qo'shib beradi.

@@ -1,4 +1,4 @@
-# Амалиётни Codespace'da qanday bajarish kerak
+# Amaliyotni Codespace'da qanday bajarish kerak
 
 Codespace — brauzerdagi Linux mashinasi. Hech narsa o'rnatish yoki buzish shart emas.
 
