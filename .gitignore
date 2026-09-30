@@ -13,3 +13,6 @@ venv/
 # Артефакты лабораторных
 labs/**/solution/
 labs/**/.lab-data/
+
+# Практика ученика
+labs/**/lab-work/
