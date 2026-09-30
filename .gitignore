@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Редакторы
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Артефакты лабораторных
+labs/**/solution/
+labs/**/.lab-data/

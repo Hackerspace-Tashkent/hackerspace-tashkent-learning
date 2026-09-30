@@ -1,18 +1,30 @@
-# Hackerspace Tashkent: Обучение свободному ПО
+# Hackerspace Tashkent — Learning
 
-Материалы для обучения использованию и развитию свободного ПО (FOSS / Open Source).
+Free hands-on materials on Linux and free software. Every practice runs in the browser — no installation needed.
 
-## О проекте
-Проект сообщества [Hackerspace Tashkent](https://github.com/Hackerspace-Tashkent).
+## Languages
 
-Материалы можно свободно использовать, модифицировать и распространять.
+Russian · English · O'zbek (Latin) · O'zbek (Cyrillic)
 
-## Для кого
-- Все, кто хочет разобраться в Linux и свободном ПО
-- Участники хакерспеса и гости
+## Start here
 
-## Структура
-- `theory/` — конспекты, статьи, ссылки
-- `labs/` — практические задания (установка, настройка, использование)
-- `projects/` — примеры проектов на базе FOSS
-- `docs/` — дополнительная документация
+- [Track Level 0 — from zero](tracks/level-0/en.md)
+- [How to run a practice in a Codespace](docs/codespaces/en.md)
+- [Projects](projects/en.md)
+
+## What is inside
+
+- `tracks/` — lessons, divided into levels
+- `labs/` — practical tasks with automatic checking
+- `projects/` — what to build after the lessons
+- `docs/` — how to work with the materials
+
+## Contributing
+
+To add a lesson, create a folder in `tracks/level-0/`, write it in all four languages (`en.md`, `ru.md`, `uz-lat.md`, `uz-cyr.md`), add the practice with its `check.sh`, and open a pull request. Code examples stay identical in every language — only the text around them is translated.
+
+> **Note.** Questions and ideas: https://t.me/hackerspace_tashkent_chat
+
+## License
+
+MIT — see [LICENSE](LICENSE).
