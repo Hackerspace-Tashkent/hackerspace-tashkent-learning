@@ -1,0 +1,60 @@
+# Lesson 2. Files and permissions
+
+Linux has no separate folders for programs and documents. Everything is a file, and every file has permissions.
+
+## Reading permissions
+
+`ls -l` shows the owner, the group, and three permission triplets: `rwx` for owner, group and others. `r` is read, `w` is write, `x` is execute.
+
+```bash
+ls -l
+-rw-r--r--  1 user user  2048 Sep 30 10:00 notes.txt
+```
+
+## Changing permissions
+
+`chmod` changes permissions. Numbers are easier to remember: 4 read, 2 write, 1 execute.
+
+```bash
+chmod 644 notes.txt   # rw-r--r-- : обычный файл
+chmod 755 script.sh  # rwxr-xr-x : скрипт
+chmod +x script.sh   # просто сделать исполняемым
+```
+
+`chown` changes the owner. You can change the group of your own files with `chgrp`.
+
+```bash
+chgrp developers notes.txt
+```
+
+## Archives
+
+```bash
+tar -czf backup.tar.gz my-project/
+tar -tzf backup.tar.gz
+tar -xzf backup.tar.gz
+```
+
+## A tiny editor
+
+`nano` is a terminal text editor. Ctrl+O saves, Ctrl+X exits.
+
+```bash
+nano notes.txt
+```
+
+> **Note.** To run a script directly, it needs the execute bit: `chmod +x script.sh`.
+
+## Practice
+
+1. Create `~/permissions-lab` and go into it.
+2. Create a file `secret.txt` and set its permissions to `600`.
+3. Create a file `readme.md` and set its permissions to `644`.
+4. Create a script `hello.sh` that prints a greeting, and make it executable.
+5. Run `./hello.sh` and confirm it works.
+6. Archive the whole directory into `lab.tar.gz`.
+
+```bash
+cd labs/level-0/02-files-and-permissions
+./check.sh
+```
