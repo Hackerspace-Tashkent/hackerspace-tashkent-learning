@@ -4,7 +4,7 @@ Linux va bepul dasturiy ta'minot bo'yicha bepul amaliy materiallar. Har bir amal
 
 ## Tillar
 
-Rus · English · O'zbek (Lotin) · O'zbek (Kirill)
+[English](README.md) · [Русский](README.ru.md) · [O'zbek (Lotin)](README.uz-lat.md) · [O'zbek (Kirill)](README.uz-cyr.md)
 
 ## Bu yerdan boshlang
 

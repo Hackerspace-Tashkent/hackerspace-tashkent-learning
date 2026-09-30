@@ -4,7 +4,7 @@
 
 ## Языки
 
-Русский · English · O'zbek (Latin) · O'zbek (Kirill)
+[English](README.md) · [Русский](README.ru.md) · [O'zbek (Lotin)](README.uz-lat.md) · [O'zbek (Kirill)](README.uz-cyr.md)
 
 ## Начните отсюда
 

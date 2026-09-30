@@ -4,7 +4,7 @@ Free hands-on materials on Linux and free software. Every practice runs in the b
 
 ## Languages
 
-Russian · English · O'zbek (Latin) · O'zbek (Cyrillic)
+[English](README.md) · [Русский](README.ru.md) · [O'zbek (Lotin)](README.uz-lat.md) · [O'zbek (Kirill)](README.uz-cyr.md)
 
 ## Start here
 

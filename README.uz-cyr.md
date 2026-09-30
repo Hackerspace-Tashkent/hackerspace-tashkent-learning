@@ -4,7 +4,7 @@ Linux ва бепул дастурий таминот бўйича бепул а
 
 ## Тиллар
 
-Рус · Енглиш · Ўзбек (Лотин) · Ўзбек (Кирилл)
+[English](README.md) · [Русский](README.ru.md) · [O'zbek (Lotin)](README.uz-lat.md) · [O'zbek (Kirill)](README.uz-cyr.md)
 
 ## Бу йердан бошланг
 
