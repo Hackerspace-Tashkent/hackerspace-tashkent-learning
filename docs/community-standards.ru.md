@@ -144,4 +144,4 @@
 | Кодекс PDX Hackerspace | [pdxhackerspace.org/code-of-conduct](https://pdxhackerspace.org/code-of-conduct.pdf) |
 | Вики хакерспейсов | [wiki.hackerspaces.org](https://wiki.hackerspaces.org) |
 | Закон о персональных данных Узбекистана | [lex.uz/uz/docs/4396419](https://lex.uz/uz/docs/4396419) |
-| Кодекс поведения Hackerspace Tashkent | [CODE_OF_CONDUCT.md](../../CODE_OF_CONDUCT.md) |
+| Кодекс поведения Hackerspace Tashkent | [CODE_OF_CONDUCT.md](https://github.com/Hackerspace-Tashkent/hackerspace-tashkent/blob/main/CODE_OF_CONDUCT.md) |

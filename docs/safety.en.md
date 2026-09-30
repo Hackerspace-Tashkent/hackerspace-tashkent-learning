@@ -177,7 +177,7 @@ Where there is no official interpretation of your exact case — ask a lawyer.
 | Network outages and restrictions | [netblocks.org](https://netblocks.org) |
 | Internet freedom by country | [freedomhouse.org](https://freedomhouse.org) |
 | Government portals | [gov.uz](https://gov.uz) |
-| Community code of conduct | [CODE_OF_CONDUCT.md](../../CODE_OF_CONDUCT.md) |
+| Community code of conduct | [CODE_OF_CONDUCT.md](https://github.com/Hackerspace-Tashkent/hackerspace-tashkent/blob/main/CODE_OF_CONDUCT.md) |
 
 ## 5. Short list
 

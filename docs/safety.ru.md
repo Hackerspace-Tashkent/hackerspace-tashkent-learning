@@ -176,7 +176,7 @@
 | Сбои и ограничения сети | [netblocks.org](https://netblocks.org) |
 | Свобода интернета по странам | [freedomhouse.org](https://freedomhouse.org) |
 | Госпорталы | [gov.uz](https://gov.uz) |
-| Кодекс поведения сообщества | [CODE_OF_CONDUCT.md](../../CODE_OF_CONDUCT.md) |
+| Кодекс поведения сообщества | [CODE_OF_CONDUCT.md](https://github.com/Hackerspace-Tashkent/hackerspace-tashkent/blob/main/CODE_OF_CONDUCT.md) |
 
 ## 5. Короткий список
 
