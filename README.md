@@ -12,6 +12,7 @@ Free hands-on materials on Linux and free software. Every practice runs in the b
 - [Track Level 0 — from zero](tracks/level-0/en.md)
 - [Track Level 1 — bash, automation, processes, networking](tracks/level-1/en.md)
 - [How to run a practice in a Codespace](docs/codespaces/en.md)
+- [How to use AI while learning](docs/using-ai.en.md)
 - [Projects](projects/en.md)
 
 ## What is inside

@@ -55,7 +55,7 @@ git commit -m 'Add gitignore'
 
 ## Practice
 
-1. Create `~/git-lab` and run `git init` there.
+1. Create `lab-work` and run `git init` there.
 2. Create `notes.md` and make at least three commits, each with a meaningful message.
 3. Create a branch `experiment`, add a file `idea.md` there, and commit it.
 4. Merge `experiment` back into `main`.

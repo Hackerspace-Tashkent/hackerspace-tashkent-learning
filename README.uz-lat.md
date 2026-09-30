@@ -12,6 +12,7 @@ Linux va bepul dasturiy ta'minot bo'yicha bepul amaliy materiallar. Har bir amal
 - [0-daraja — noldan boshlash](tracks/level-0/uz-lat.md)
 - [1-daraja — bash, avtomatlashtirish, jarayonlar, tarmoq](tracks/level-1/uz-lat.md)
 - [Codespace'da amaliyotni qanday bajarish kerak](docs/codespaces/uz-lat.md)
+- [O'rganishda AI dan qanday foydalanish](docs/using-ai.uz-lat.md)
 - [Loyihalar](projects/uz-lat.md)
 
 ## Ichida nima bor

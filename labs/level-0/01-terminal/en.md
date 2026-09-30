@@ -77,7 +77,7 @@ grep -r 'TODO' ~ 2>/dev/null | head
 
 Do it in a Codespace, then run `./check.sh` — it tells you what is still missing.
 
-1. Create the directory `~/terminal-lab`.
+1. Create the directory `lab-work`.
 2. Go into it and create three files: `a.txt`, `b.txt`, `c.md`.
 3. Write any text into `a.txt` and `b.txt`.
 4. Copy `a.txt` to `backup.txt`, then rename the copy to `final.txt`.

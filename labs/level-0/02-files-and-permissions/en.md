@@ -47,7 +47,7 @@ nano notes.txt
 
 ## Practice
 
-1. Create `~/permissions-lab` and go into it.
+1. Create `lab-work` and go into it.
 2. Create a file `secret.txt` and set its permissions to `600`.
 3. Create a file `readme.md` and set its permissions to `644`.
 4. Create a script `hello.sh` that prints a greeting, and make it executable.

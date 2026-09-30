@@ -59,7 +59,7 @@ print("lines:", count)
 
 ## Амалиёт
 
-1. `~/script-lab` yarating va unga kiring.
+1. `lab-work` yarating va unga kiring.
 2. `greet.py` yozing: ism so'raydi va salomlaydi. Bajarishga ruxsat bering.
 3. `count.py` yozing: fayl nomini argument sifatida oladi va necha qator borligini chiqaradi.
 4. Kamida 5 qatorli `data.txt` fayli yarating.

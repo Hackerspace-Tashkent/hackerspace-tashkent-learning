@@ -44,7 +44,7 @@ check() {
 check 'Repository lab-work exists' 'Репозиторий lab-work создан' 'lab-work repository mavjud' 'lab-work репозиторий мавжуд' '[ -d "$WORK/.git" ]'
 check 'notes.md is tracked by git' 'notes.md отслеживается git' 'notes.md git tomonidan kuzatilmoqda' 'notes.txt git томонидан кузатилмоқда' 'cd "$WORK" 2>/dev/null && git ls-files --error-unmatch notes.md'
 check 'There are at least 3 commits' 'Есть минимум 3 коммита' 'Kamida 3 ta commit bor' 'Камида 3 та коммит бор' 'cd "$WORK" 2>/dev/null && [ "$(git rev-list --count HEAD 2>/dev/null)" -ge 3 ]'
-check 'Branch experiment was merged' 'Ветка experiment слита' 'experiment tarmog'\''i birlashtirilgan' 'experiment тармоғи бирлаштирилган' 'cd "$WORK" 2>/dev/null && [ -f idea.md ]'
+check 'Branch experiment was merged' 'Ветка experiment слита' 'experiment tarmog'\''i birlashtirilgan' 'experiment тармоғи бирлаштирилган' 'cd "$WORK" 2>/dev/null && git merge-base --is-ancestor experiment HEAD 2>/dev/null'
 check 'File idea.md exists' 'Файл idea.md существует' 'idea.md fayli mavjud' 'idea.md файли мавжуд' '[ -f "$WORK/idea.md" ]'
 check '.gitignore ignores tmp/' '.gitignore игнорирует tmp/' '.gitignore tmp/ ni ignore qiladi' '.gitignore tmp/ ни игноре қилади' 'cd "$WORK" 2>/dev/null && grep -q "tmp/" .gitignore'
 
