@@ -4,13 +4,16 @@ Linux ва бепул дастурий таминот бўйича бепул а
 
 ## Тиллар
 
-Рус · Енглиш · Ўзбек (Лотин) · Ўзбек (Кирилл)
+[English](README.md) · [Русский](README.ru.md) · [O'zbek (Lotin)](README.uz-lat.md) · [O'zbek (Kirill)](README.uz-cyr.md)
 
 ## Бу йердан бошланг
 
-- [0-даража — нолдан бошлаш](tracks/level-0/uz-lat.md)
-- [Codespaceda амалийотни қандай бажариш керак](docs/codespaces/uz-lat.md)
-- [Лойиҳалар](projects/uz-lat.md)
+- [Нимадан бошлаш: git, GitHub ва Codespaces](docs/start-here.uz-cyr.md)
+- [0-даража — нолдан бошлаш](tracks/level-0/uz-cyr.md)
+- [1-даража — bash, автоматлаштириш, жараёнлар, тармоқ](tracks/level-1/uz-cyr.md)
+- [Codespace'да амалиётни қандай бажариш керак](docs/codespaces/uz-cyr.md)
+- [Ўрганишда AI нимадан қандай фойдаланиш](docs/using-ai.uz-cyr.md)
+- [Лойиҳалар](projects/uz-cyr.md)
 
 ## Ичида нима бор
 
@@ -23,7 +26,9 @@ Linux ва бепул дастурий таминот бўйича бепул а
 
 Уроқ қўшиш учун `tracks/level-0/` да папка яратинг, уни тўрт тилда ёзинг (`en.md`, `ru.md`, `uz-lat.md`, `uz-cyr.md`), амалиёт ва унинг `check.sh` файлини қўшинг, сўнг pull request очинг. Код мисоллари барча тилларда бир хил қолади — фақат улар атрофидаги матн таржима қилинади.
 
-> **Изоҳ.** Саволлар ва ғойалар: https://t.me/hackerspace_tashkent_chat
+> **Изоҳ.** Саволлар ва ғойалар: https://t.me/hackerspace_tashkent_chat — ёки GitHub'да issue очинг.
+>
+> Амалиёт қўлда эмас, Codespace ичидаги `./check.sh` скрипти билан текширилади.
 
 ## Лицензийа
 

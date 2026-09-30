@@ -47,7 +47,7 @@ nano notes.txt
 
 ## Амалиёт
 
-1. `~/permissions-lab` yarating va unga kiring.
+1. `lab-work` yarating va unga kiring.
 2. `secret.txt` fayli yarating va unga `600` ruxsat bering.
 3. `readme.md` fayli yarating va unga `644` ruxsat bering.
 4. `hello.sh` skripti yarating (salomlashuv chiqaradi) va uni bajarishga ruxsat bering.

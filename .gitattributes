@@ -1,0 +1,28 @@
+# Нормализация переносов строк.
+#
+# Зачем: check.sh — это bash. Если у ученика Windows и git сохранил файл
+# с окончаниями CRLF, скрипт падает с ошибкой $'\r': command not found.
+# Правило ниже заставляет git хранить в репозитории LF, а на Windows
+# оставлять CRLF только в рабочей копии.
+
+* text=auto eol=lf
+
+*.sh text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Двоичное — не трогаем
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.bin binary
+*.hex binary
+*.elf binary

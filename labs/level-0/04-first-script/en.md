@@ -59,7 +59,7 @@ print("lines:", count)
 
 ## Practice
 
-1. Create `~/script-lab` and go into it.
+1. Create `lab-work` and go into it.
 2. Write `greet.py`: it asks for a name and greets the user. Make it executable.
 3. Write `count.py`: it takes a filename as an argument and prints how many lines that file has.
 4. Create a text file `data.txt` with at least 5 lines.

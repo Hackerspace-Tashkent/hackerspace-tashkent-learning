@@ -55,7 +55,7 @@ git commit -m 'Add gitignore'
 
 ## Амалиёт
 
-1. `~/git-lab` yarating va u yerda `git init` bajariring.
+1. `lab-work` yarating va u yerda `git init` bajariring.
 2. `notes.md` yarating va kamida uchta commit qiling, har biriga ma'nomli xabar yozing.
 3. `experiment` tarmog'ini yarating, unga `idea.md` faylini qo'shing va commit qiling.
 4. `experiment` tarmog'ini `main` ga qaytaring (merge).

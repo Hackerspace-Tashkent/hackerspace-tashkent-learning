@@ -77,7 +77,7 @@ grep -r 'TODO' ~ 2>/dev/null | head
 
 Codespace'da bajaring, keyin `./check.sh` — nimani qilish kerakligini aytadi.
 
-1. `~/terminal-lab` katalogini yarating.
+1. `lab-work` katalogini yarating.
 2. Unga kiring va uchta fayl yarating: `a.txt`, `b.txt`, `c.md`.
 3. `a.txt` va `b.txt` ichiga ixtiyoriy matn yozing.
 4. `a.txt` ni `backup.txt` ga nusxalang, keyin nusxani `final.txt` ga nomini o'zgartiring.
