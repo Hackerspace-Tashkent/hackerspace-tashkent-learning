@@ -79,6 +79,7 @@ Chegara vaqt o'zgaradi — bu erga tayanishdan oldin havola bo'yicha tekshiring.
 | **Perplexity** | Manbalar bilan qidiruv | Asosiy qidiruvlar amalda cheksiz, kuniga 3 ta Pro Search | [perplexity.ai](https://www.perplexity.ai) |
 | **OpenRouter** | API orqali modellarga kirish | `:free` qo'shimchali 25+ model; kuniga 50 ta so'rov, yoki 10 kredit bir marta xarid qilsangiz 1000 | [openrouter.ai/pricing](https://openrouter.ai/pricing) |
 | **Ollama + Qwen** | O'z mashinasizda model | Cheksiz, o'z temiringiz bilan cheklangan | [ollama.com/library/qwen](https://ollama.com/library/qwen) |
+| **DeepSeek** | Telefondan ishlatish | Ilova bepul, obuna yo'q | [chat.deepseek.com](https://chat.deepseek.com) |
 | **Google AI Studio** | Gemini modellari bilan ish | Kvota bilan bepul | [aistudio.google.com](https://aistudio.google.com) |
 | **GitHub Copilot** | Redaktorda maslahat | Bepul tarif, talabalar uchun ko'proq | [github.com/features/copilot](https://github.com/features/copilot) |
 
@@ -93,6 +94,39 @@ zaxira saqlang.
 **Mahalliy model** — ma'lumot fizik ravishda mashinadan chiqmaydigan yagona
 variant. Maxfiy kod va internetsiz ishlash uchun yaxshi. To'lov operativ xotira
 va tezlik bilan.
+
+### Telefondan ishlasangiz
+
+Telefonda lokal modelni ishga tushirib bo'lmaydi — xotira yetmaydi, batareya
+yarim soatda tugaydi. Qolgani bulut chat, va tanlov kompyuterdagidan tor.
+
+**DeepSeek** — telefondan eng amaliy variant. Rasmiy ilova bepul, obuna yo'q,
+reklamasi yo'q, Android va iOS da ishlaydi. Veb qidiruv va fayl yuklash bor.
+Tekshirildi: `chat.deepseek.com` va `api.deepseek.com` domenlari tirik, model
+vaznlari Hugging Face da MIT litsiyasi bilan ochiq — ya'ni modelni o'zingiz ham
+ishga tushirishingiz mumkin.
+
+DeepSeek haqida tushunish kerak bo'lgan uchta narsa:
+
+- **Ilova bepul, API esa emas.** Bu boshqa mahsulotlar. Ilovadagi chat hech
+  narxga tushmaydi, API so'rovlari esa token bo'yicha to'lanadi — peakdan
+  tashqari vaqtda kirish tokenlari uchun taxminan $0.22 dan millioniga. Agar
+  ishlanuvchi e'lonida «bepul DeepSeek» ko'rsangiz, bu deyarli har doim
+  vaqtinchalik credit yoki umuman API emas haqida.
+- **Cheklovlar e'lon qilinmaydi.** Xabarnoma hisoblagichi o'rniga yuklama
+  paytida «Server Busy» chiqishi mumkin. Bu bloklash emas, hisob yopilgan emas —
+  shunchaki kutib turing.
+- **So'rovlar Xitoyda qayta ishlanadi.** Bu foydalanmaslik uchun sabab emas:
+  boshqa har qanday bulut chatga ham shuncha ma'lumot ketadi. Lekin agar
+  so'rovga begona ko'rmasligi kerak bo'lgan narsa tushsa, 8-bo'limni eslang.
+
+**Bu biz uchun aynan nima uchun muhim.** Toshkentda ko'plab uchun telefon —
+internetli yagona qurilma. DeepSeek kompyutersiz, obunasiz va kartasiz to'liq
+AI beradi. Mavjud variantlar ichida eng past kirish chegarasi shu.
+
+Telefondan foydali: kun davomida tez savol, ekran suratidan xato matnini
+tushunish, matn qoralamasi, tarjima. Telefondan qilmagan yaxshi: maxfiy kod bilan
+ishlash va tashqariga chiqmasligi kerak bo'lgan ma'lumot bilan ishlash.
 
 ## 5. Vazifaga qarab tanlash
 
