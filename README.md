@@ -23,7 +23,7 @@ Free hands-on materials on Linux and free software. Every practice runs in the b
 
 To add a lesson, create a folder in `tracks/level-0/`, write it in all four languages (`en.md`, `ru.md`, `uz-lat.md`, `uz-cyr.md`), add the practice with its `check.sh`, and open a pull request. Code examples stay identical in every language — only the text around them is translated.
 
-> **Note.** Questions and ideas: https://t.me/hackerspace_tashkent_chat
+> **Note.** Open an issue on GitHub if something is wrong or unclear.
 
 ## License
 
