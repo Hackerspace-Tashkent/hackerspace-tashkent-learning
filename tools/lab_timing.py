@@ -29,17 +29,22 @@ COUNT_RE = re.compile(r"(\d+)\s*/\s*(\d+)")
 
 
 def labs():
+    """Все практики, включая вложенные.
+
+    Основной трек лежит в labs/level-N/тема/check.sh, а безопасность —
+    в labs/security/level-N/тема/check.sh. Раньше обход шёл ровно на два
+    уровня, поэтому практики по безопасности молча не проверялись.
+    """
     out = []
     base = os.path.join(ROOT, "labs")
-    for level in sorted(os.listdir(base)):
-        ldir = os.path.join(base, level)
-        if not os.path.isdir(ldir):
-            continue
-        for name in sorted(os.listdir(ldir)):
-            chk = os.path.join(ldir, name, "check.sh")
-            if os.path.isfile(chk):
-                out.append((level, name, chk))
-    return out
+    for dirpath, dirnames, filenames in os.walk(base):
+        if "check.sh" in filenames:
+            rel = os.path.relpath(dirpath, base)
+            parts = rel.split(os.sep)
+            level = "/".join(parts[:-1])
+            name = parts[-1]
+            out.append((level, name, os.path.join(dirpath, "check.sh")))
+    return sorted(out)
 
 
 def run_one(level, name, chk):
