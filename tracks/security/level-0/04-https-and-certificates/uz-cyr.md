@@ -49,16 +49,71 @@ ctx = ssl._create_unverified_context()
 жимгина ўтади. Шифрлаш ўрнида туради, лекин у томда ким борлиги
 маълум эмас. Бу — эшикни маҳкамлаб, тешикдан қарамай қолдириш.
 
+## Сервер қисми
+
+Серверни сен ёзмайсиз — у аллақачон тушунтирилган. Муҳим бўлган уч
+қатор белгиланган, қолгани 08-дарсдаги оддий HTTP сервер.
+
+```python
+#!/usr/bin/env python3
+"""HTTPS-сервер с учебным самоподписанным сертификатом."""
+import http.server
+import json
+import ssl
+
+PORT = 8443
+
+
+class H(http.server.BaseHTTPRequestHandler):
+    def do_GET(self):
+        body = json.dumps({"ok": True, "who": "localhost"}).encode()
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def log_message(self, *a):
+        pass
+
+
+# Три строки, ради которых всё затевалось.
+ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)   # 1. серверная сторона TLS
+ctx.load_cert_chain("cert.pem", "key.pem")     # 2. предъявить сертификат
+srv = http.server.HTTPServer(("127.0.0.1", PORT), H)
+srv.socket = ctx.wrap_socket(srv.socket, server_side=True)  # 3. надеть TLS
+srv.serve_forever()
+```
+
+**Бу ерда муҳими.** 1-қатор TLS томонини танлайди. 2-қатор айтади:
+«менинг сертификатим ва ёпиқ калитим шу» — ва сервер уни ҳар
+улган одамга кўрсатади. 3-қатор сокетни ўради, шундан кейин маълумот
+шифрланган ҳолда учиши.
+
+Эслатма: сервер сертификатини кўрсатишдан олдин **ҳеч кимдан сабаб
+сўрамайди**. Сертификатни кўрсатиш — рухсат эмас. Рухсатни
+клиент беради, ва дарснинг иккинчи қисми айнан шу ҳақида.
+
 ## Сен нима қиласан
 
 1. `localhost` учун ўз-ўзидан имзоланган сертификат чиқар.
-2. `server.py` ёз: шу сертификат билан HTTPS беради.
+2. Бу бўлимдаги `server.py` ни `lab-work/` га кўчир.
 3. `client.py` ёз: **текширув билан** ва текширувсиз уланади.
 4. `proof.txt` га сертификат SHA-256 изининг биринчи 16 белгисини ёз.
 5. `notes.md` да жавоб бер: **шифрлаш ишлаяпти бўлса,
    текширувсиз сертификатда нимаси нотўғри?**
 
 ## Буйруқ
+
+Аввал иш папкасини яратиб, унга ўтинг. **Текширув файлларни айнан
+у ерда излайди.**
+
+```bash
+mkdir -p lab-work
+cd lab-work
+```
+
+Қолган ҳаммаси шу папкада яратилади:
 
 ```bash
 openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem \

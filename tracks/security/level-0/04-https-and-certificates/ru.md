@@ -45,10 +45,55 @@ ctx = ssl._create_unverified_context()
 проходит молча. Шифрование при этом остаётся, но кто на том конце —
 неизвестно. Это как запереть дверь и не посмотреть в глазок.
 
+## Серверная часть
+
+Сервер ты не пишешь — он уже разобран. Три строки, ради которых всё
+затевалось, помечены. Остальное — обычный HTTP-сервер из урока 08.
+
+```python
+#!/usr/bin/env python3
+"""HTTPS-сервер с учебным самоподписанным сертификатом."""
+import http.server
+import json
+import ssl
+
+PORT = 8443
+
+
+class H(http.server.BaseHTTPRequestHandler):
+    def do_GET(self):
+        body = json.dumps({"ok": True, "who": "localhost"}).encode()
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def log_message(self, *a):
+        pass
+
+
+# Три строки, ради которых всё затевалось.
+ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)   # 1. серверная сторона TLS
+ctx.load_cert_chain("cert.pem", "key.pem")     # 2. предъявить сертификат
+srv = http.server.HTTPServer(("127.0.0.1", PORT), H)
+srv.socket = ctx.wrap_socket(srv.socket, server_side=True)  # 3. надеть TLS
+srv.serve_forever()
+```
+
+**Что здесь важно.** Строка 1 выбирает сторону TLS. Строка 2 говорит:
+«вот мой сертификат и мой закрытый ключ» — и сервер предъявляет их
+каждому, кто подключится. Строка 3 оборачивает сокет, и с этого момента
+данные летят в зашифрованном виде.
+
+Заметь: сервер **никого не спрашивает**, прежде чем показать сертификат.
+Показ сертификата — это не разрешение. Решение принимает клиент, и об
+этом вторая половина урока.
+
 ## Что ты сделаешь
 
 1. Выпусти самоподписанный сертификат для `localhost`.
-2. Напиши `server.py`, который отдаёт HTTPS с этим сертификатом.
+2. Скопируй `server.py` из этого раздела в `lab-work/`.
 3. Напиши `client.py`, который подключается **с проверкой** и без неё.
 4. Запиши в `proof.txt` первые 16 символов SHA-256 отпечатка
    сертификата.
@@ -56,6 +101,16 @@ ctx = ssl._create_unverified_context()
    шифрование всё равно работает?**
 
 ## Команда
+
+Сначала создай папку для своей работы и перейди в неё. **Проверка ищет
+файлы именно там.**
+
+```bash
+mkdir -p lab-work
+cd lab-work
+```
+
+Дальше всё создаётся в этой папке:
 
 ```bash
 openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem \

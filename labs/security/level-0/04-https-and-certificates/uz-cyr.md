@@ -20,8 +20,17 @@
 
 ## Тартиб
 
-1. Дарсдаги буйруқ билан сертификат чиқар.
-2. `server.py` ва `client.py` ёз.
+1. `lab-work` ярат ва у ичида сертификат чиқар:
+
+```bash
+mkdir -p lab-work
+cd lab-work
+openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem \
+  -days 1 -nodes -subj "/CN=localhost"
+```
+
+   **Барча файллар `lab-work/` ичида бўлиши керак.** Жорий папкадаги файллар ҳисобга олинмайди.
+2. `server.py` ни дарсдаги сервер қисмидан `lab-work/` га кўчир, кейин `client.py` ёз.
 3. Изни `proof.txt` га ёз.
 4. `notes.md` да жавоб бер: шифрлаш ишлаяпти бўлса, текширув нима учун керак?
 

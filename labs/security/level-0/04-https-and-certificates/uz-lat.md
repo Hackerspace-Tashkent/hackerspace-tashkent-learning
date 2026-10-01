@@ -20,8 +20,18 @@ faqat birinchisi tekshiruv nima uchun kerakligini koʻrsatmaydi.
 
 ## Tartib
 
-1. Darsdagi buyruq bilan sertifikat chiqar.
-2. `server.py` va `client.py` yoz.
+1. `lab-work` yarat va u ichida sertifikat chiqar:
+
+```bash
+mkdir -p lab-work
+cd lab-work
+openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem \
+  -days 1 -nodes -subj "/CN=localhost"
+```
+
+   **Barcha fayllar `lab-work/` ichida boʻlishi kerak.** Joriy papkadagi
+   fayllar hisobga olinmaydi.
+2. `server.py` ni darsdagi server qismidan `lab-work/` ga koʻchir, keyin `client.py` yoz.
 3. Izni `proof.txt` ga yoz.
 4. `notes.md` da javob ber: shifrlash ishlayapti boʻlsa, tekshiruv
    nima uchun kerak?

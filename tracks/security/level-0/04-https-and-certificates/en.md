@@ -48,10 +48,56 @@ passes silently. The encryption is still there, but who is on the other
 end is unknown. It is like locking the door and not looking through the
 peephole.
 
+## The server side
+
+You do not write the server — it is already explained. The three lines
+that matter are marked; the rest is the ordinary HTTP server from lesson
+08.
+
+```python
+#!/usr/bin/env python3
+"""HTTPS-сервер с учебным самоподписанным сертификатом."""
+import http.server
+import json
+import ssl
+
+PORT = 8443
+
+
+class H(http.server.BaseHTTPRequestHandler):
+    def do_GET(self):
+        body = json.dumps({"ok": True, "who": "localhost"}).encode()
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def log_message(self, *a):
+        pass
+
+
+# Три строки, ради которых всё затевалось.
+ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)   # 1. серверная сторона TLS
+ctx.load_cert_chain("cert.pem", "key.pem")     # 2. предъявить сертификат
+srv = http.server.HTTPServer(("127.0.0.1", PORT), H)
+srv.socket = ctx.wrap_socket(srv.socket, server_side=True)  # 3. надеть TLS
+srv.serve_forever()
+```
+
+**What matters here.** Line 1 chooses the TLS side. Line 2 says: "here
+is my certificate and my private key" — and the server presents them to
+everyone who connects. Line 3 wraps the socket, and from that moment
+the data travels encrypted.
+
+Notice: the server **asks nobody** before showing its certificate.
+Presenting a certificate is not permission. The client decides, and that
+is the second half of the lesson.
+
 ## What you will do
 
 1. Issue a self-signed certificate for `localhost`.
-2. Write `server.py` serving HTTPS with that certificate.
+2. Copy `server.py` from this section into `lab-work/`.
 3. Write `client.py` that connects **with** the check and without it.
 4. Write the first 16 characters of the certificate's SHA-256
    fingerprint into `proof.txt`.
@@ -59,6 +105,16 @@ peephole.
    if the encryption still works?**
 
 ## The command
+
+First create the folder for your work and go into it. **The check looks
+for the files exactly there.**
+
+```bash
+mkdir -p lab-work
+cd lab-work
+```
+
+Everything else is created in that folder:
 
 ```bash
 openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem \

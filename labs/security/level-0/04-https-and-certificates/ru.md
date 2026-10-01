@@ -20,8 +20,17 @@
 
 ## Порядок
 
-1. Выпусти сертификат командой из урока.
-2. Напиши `server.py` и `client.py`.
+1. Создай `lab-work` и выпусти сертификат в нём:
+
+```bash
+mkdir -p lab-work
+cd lab-work
+openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem \
+  -days 1 -nodes -subj "/CN=localhost"
+```
+
+   **Все файлы должны лежать в `lab-work/`.** В текущей папке они не считаются.
+2. Скопируй `server.py` из раздела «Серверная часть» урока в `lab-work/`, затем напиши `client.py`.
 3. Отпечаток запиши в `proof.txt`.
 4. Ответь в `notes.md`: зачем проверка, если шифрование и так работает.
 

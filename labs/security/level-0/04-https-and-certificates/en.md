@@ -20,8 +20,17 @@ show why the check is needed.
 
 ## Order
 
-1. Issue the certificate with the command from the lesson.
-2. Write `server.py` and `client.py`.
+1. Create `lab-work` and issue the certificate inside it:
+
+```bash
+mkdir -p lab-work
+cd lab-work
+openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem \
+  -days 1 -nodes -subj "/CN=localhost"
+```
+
+   **Every file must be in `lab-work/`.** Files in the current folder do not count.
+2. Copy `server.py` from the lesson's server section into `lab-work/`, then write `client.py`.
 3. Write the fingerprint into `proof.txt`.
 4. Answer in `notes.md`: why the check, if the encryption works anyway?
 
