@@ -17,7 +17,10 @@ self_test.py — протокол собственного прохода.
 import argparse
 import io
 import os
+import re
+import shutil
 import subprocess
+import tempfile
 import sys
 import time
 
@@ -150,10 +153,59 @@ def save(report):
     print("  Главное: не чини текст сам по ходу. Записывай, вернёшься после.")
 
 
+COUNT_RE = re.compile(r"(\d+)\s*/\s*(\d+)")
+
+
+def count_checks(level, name):
+    """Сколько проверок в практике.
+
+    Запускаем её на пустой изолированной копии и читаем строку «n/m».
+    Практика обязана на этом упасть — если она проходит на пустом месте,
+    значит она ничего не проверяет, и это тоже полезно увидеть.
+    """
+    src = os.path.join(ROOT, "labs", "level-%d" % level, name)
+    with tempfile.TemporaryDirectory() as tmp:
+        dst = os.path.join(tmp, name)
+        shutil.copytree(src, dst, ignore=shutil.ignore_patterns("lab-work"))
+        shutil.rmtree(os.path.join(dst, "lab-work"), ignore_errors=True)
+        env = dict(os.environ, CHECK_LANG="ru")
+        try:
+            proc = subprocess.run(["bash", "check.sh"], cwd=dst,
+                                  capture_output=True, text=True,
+                                  timeout=120, env=env)
+        except subprocess.TimeoutExpired:
+            return -1
+        m = COUNT_RE.search(proc.stdout + proc.stderr)
+        return int(m.group(2)) if m else -1
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--level", type=int, default=0)
+    ap.add_argument("--list", action="store_true",
+                    help="показать, какие практики будут пройдены, и ничего не запускать")
     args = ap.parse_args()
+
+    if args.list:
+        # Человек должен видеть, что он запускает, ещё до запуска.
+        # Итог проверок — переменная, которую скрипт собирает в рантайме,
+        # поэтому узнать её можно только запуском. Запускаем на изолированной
+        # пустой копии: ничего не портим, но видим настоящее число.
+        items = labs(args.level)
+        if not items:
+            print("практик для уровня %d нет" % args.level)
+            return
+        print("уровень %d, практик: %d\n" % (args.level, len(items)))
+        grand = 0
+        for name, _ in items:
+            total = count_checks(args.level, name)
+            grand += total
+            print("  %-30s %2d проверок" % (name, total))
+        print("\n  итого: %d проверок в %d практиках"
+              % (grand, len(items)))
+        print("  запуск: python3 tools/self_test.py --level %d" % args.level)
+        return
+
     report = run_level(args.level)
     if report:
         save(report)
