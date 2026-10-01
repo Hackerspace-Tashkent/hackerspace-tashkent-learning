@@ -82,3 +82,6 @@ nvim.log
 labs/**/lab-work/
 labs/**/solution/
 labs/**/.lab-data/
+
+# отчёт собственного прохода — заполняется вручную
+SELF-TEST.md
