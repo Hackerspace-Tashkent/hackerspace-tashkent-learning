@@ -40,6 +40,11 @@ Autentifikatsiya, kirish nazorati, kod ichidagi kalitlar.
 - repozitoriy va brauzerdagi kalitlar: nega sahifadagi kalit endi sizniki emas
 - 08-darsdagi API ni zaifliklar bo'yicha bo'laklarga ajratish
 
+
+**Yozilgan va tekshirilgan:**
+
+- [SQL inyektsiyasi](level-1/01-sql-injection/uz-lat.md)
+
 ### S2. Ilg'or
 
 Vebdagi klassik zaifliklar, har biri o'z lokal serverida.
@@ -76,7 +81,7 @@ javobga faqat tushunib borish orqali yetish mumkin.
 
 ## Hali yo'q bo'lganlar
 
-Yozilgan va tekshirilgan: S0 darajasi, **uch mavzu**.
+Yozilgan va tekshirilgan: S0 darajasi — **toʻrtta mavzu**, S1 — **bitta**.
 
 Yozilmagan: S1, S2, S3. Sabab qiyinlik emas, balki shuki **birorta odam
 hatto S0 ni ham o'tmagan**. Birinchi mavzu ishlashini ko'rsatish kerak,

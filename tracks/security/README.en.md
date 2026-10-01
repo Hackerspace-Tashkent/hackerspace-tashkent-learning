@@ -28,6 +28,7 @@ What the server sees, and why it matters.
 - [What the server sees](level-0/01-what-the-server-sees/en.md)
 - [The secret in the code](level-0/02-secrets-in-code/en.md)
 - [Passwords and hashes](level-0/03-passwords-and-hashing/en.md)
+- [HTTPS and certificates](level-0/04-https-and-certificates/en.md)
 
 You send headers. The server believes them. So what you claim about
 yourself proves nothing. This is the ground everything else stands on.
@@ -41,6 +42,11 @@ Authentication, access control, secrets in code.
 - secrets in a repository and in the browser: why a key on a page is no
   longer yours
 - taking the API from lesson 08 apart for vulnerabilities
+
+
+**Written and verified:**
+
+- [SQL injection](level-1/01-sql-injection/en.md)
 
 ### S2. Advanced
 
@@ -78,7 +84,7 @@ the answer is to understand it.
 
 ## What is not here yet
 
-Written and verified: level S0, **three topics**.
+Written and verified: level S0 — **four topics**, S1 — **one**.
 
 Not written: S1, S2, S3. Not because it is hard, but because **not one
 person has gone through even S0**. The first topic has to be shown to
