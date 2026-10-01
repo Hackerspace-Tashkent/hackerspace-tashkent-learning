@@ -5,10 +5,10 @@ Server — bu shunchaki portda tinglayotgan dastur. Uni ishga tushirib, unga mur
 ## Manzillar va portlar
 
 ```bash
-ip addr              # адреса всех интерфейсов
-ip route             # куда идёт трафик
-hostname -I          # свой адрес
-ss -tlnp             # кто слушает порты
+ip addr              # barcha interfeys manzillari
+ip route             # trafik qayerga ketadi
+hostname -I          # oʻz manzilingiz
+ss -tlnp             # portlarni kim tinglaydi
 ```
 
 `127.0.0.1` — bu `localhost`, o'zingiz bilan gaplashish. Port — 1 dan 65535 gacha raqam, tinglovchilar orasidan bitta dasturni tanlaydi.
@@ -24,10 +24,10 @@ python3 -m http.server 8000 --bind 127.0.0.1
 ## Serverga murojaat
 
 ```bash
-curl -I http://127.0.0.1:8000     # только заголовки
-curl -s http://127.0.0.1:8000 | head    # первые строки
-curl -o page.html http://127.0.0.1:8000 # сохранить в файл
-echo $?                                # код: 0 — связь есть
+curl -I http://127.0.0.1:8000     # faqat sarlavhalar
+curl -s http://127.0.0.1:8000 | head    # birinchi qatorlar
+curl -o page.html http://127.0.0.1:8000 # faylga saqlash
+echo $?                                # kod: 0 — aloqa bor
 ```
 
 - `200` OK

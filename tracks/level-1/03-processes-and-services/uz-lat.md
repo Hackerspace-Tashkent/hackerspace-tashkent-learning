@@ -5,11 +5,11 @@ Har bir ishlayotgan dastur — raqamli jarayon. Ularni koʻrish, fonga oʻtkazis
 ## Jaraenlarni koʻrish
 
 ```bash
-ps                  # процессы текущего терминала
-ps aux               # все процессы всех пользователей
-ps -ef               # то же, другой формат
-top                  # обновляется live, q — выход
-pgrep -f "python"    # найти по имени
+ps                  # joriy terminal jarayonlari
+ps aux               # barcha foydalanuvchilarning jarayonlari
+ps -ef               # xuddi shu, boshqa formatda
+top                  # jonli yangilanadi, q — chiqish
+pgrep -f "python"    # nomi boʻyicha qidirish
 ```
 
 Har bir jarayonning `/proc` da shu raqamda katalogi bor. Bu dastur oʻzi haqida nima deganini koʻrishning halol yoʻli.
@@ -17,13 +17,13 @@ Har bir jarayonning `/proc` da shu raqamda katalogi bor. Bu dastur oʻzi haqida 
 ## Fon va toʻxtatish
 
 ```bash
-sleep 300 &        # запустить в фоне
-jobs                # что запущено из этого терминала
-nohup ./long.sh &   # пережить закрытие терминала
-disown -a           # забыть о фоновых процессах
+sleep 300 &        # fonda ishga tushirish
+jobs                # shu terminaldan nimalar ishga tushgan
+nohup ./long.sh &   # terminal yopilgandan oʻtib ketish
+disown -a           # fon jarayonlarini unutish
 
-kill 12345          # попросить завершиться (SIGTERM)
-kill -9 12345       # убить немедленно (SIGKILL)
+kill 12345          # tugashga soʻrash (SIGTERM)
+kill -9 12345       # darhol tugatish (SIGKILL)
 ```
 
 > **Izoh.** K harfi katta emas `kill` — hazil emas: oddiy `kill` yaxshilab so'raydi. `-9` ushlanmaydi, dastur tozalashga ulgurmaydi.

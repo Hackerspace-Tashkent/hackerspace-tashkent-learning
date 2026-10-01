@@ -336,6 +336,33 @@ def check_script_mixing(r):
             r.ok(name)
 
 
+def check_foreign_comments(r):
+    """В latin-версиях не должно остаться русских комментариев в коде.
+
+    Код одинаков во всех языках, поэтому команды одинаковы. Но комментарий —
+    это объяснение, и читателю латинского узбекского он нужен на понятном ему
+    языке. Раньше такие комментарии оставались на русском.
+    """
+    ru_words = re.compile(
+        r"#.*\b(только|сохранить|файл|скрипт|процессы|выход|фоне|аргумент|"
+        r"запустить|показать|изменить|удалить|ошибк|каталог|адрес|код)\w*")
+    for p in walk("uz-lat.md"):
+        text = open(os.path.join(ROOT, p), encoding="utf-8").read()
+        name = "русские комментарии в коде: " + p
+        bad = []
+        in_code = False
+        for i, line in enumerate(text.split("\n"), 1):
+            if line.startswith("```"):
+                in_code = not in_code
+                continue
+            if in_code and ru_words.search(line):
+                bad.append(i)
+        if bad:
+            r.warn(name, "строки: %s" % bad[:8])
+        else:
+            r.ok(name)
+
+
 def main():
     r = Report()
     check_encoding(r)
@@ -346,6 +373,7 @@ def main():
     check_structure_alignment(r)
     check_scripts(r)
     check_script_mixing(r)
+    check_foreign_comments(r)
     check_forbidden(r)
 
     if "--links" in sys.argv:

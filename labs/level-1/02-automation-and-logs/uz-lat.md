@@ -7,11 +7,11 @@ O'zi bajaradigan vazifa — eslab turish kerak bo'lgan vazifadan ancha qimmatli.
 Har bir buyruqning uchta oqimi bor: natija uchun standart chiqim, muammolar uchun xato chiqimi va kirim. `>` fayl yozadi, `>>` qoʻshadi, `2>` xatolarni yoʻnaltiradi.
 
 ```bash
-ls > out.txt          # только stdout, очистит файл
-ls >> out.txt         # добавит в конец
-ls 2> err.txt         # только stderr
-ls > all.txt 2>&1     # и то и другое в один файл
-ls 2>&1 | grep txt    # ошибки тоже попадут в пайп
+ls > out.txt          # faqat stdout, faylni tozalaydi
+ls >> out.txt         # oxiriga qoʻshadi
+ls 2> err.txt         # faqat stderr
+ls > all.txt 2>&1     # ikkalasi bitta faylga
+ls 2>&1 | grep txt    # xatolar ham paipga tushadi
 ```
 
 > **Izoh.** Jurnal — bu fayl, unga qoʻshib borsa, hech qachon tozalanmaydi. `>>` ishlatng va har qatorning boshiga sana qoʻying.
@@ -28,7 +28,7 @@ printf '%s finished with code %d\n' "$(date '+%F %T')" "$?" >> "$log"
 `cron` belgilangan vaqtda buyruqni ishga tushiradi. Qatorda beshta maydon bor: daqiqa, soat, oy kuni, oy, hafta kuni, so'ng buyruq.
 
 ```bash
-# минута час день месяц день_недели  команда
+# daqiqa soat kun oy hafta-kuni  buyruq
 */5 *   *   *     *            /home/me/report.sh
 0  9   *   *     1-5          /home/me/backup.sh
 30 18  *   *     *            /home/me/clean.sh
@@ -43,9 +43,9 @@ cron'ga hech qachon pochta yubormaslik. Ikkala oqimni jurnal fayliga yo'naltirin
 ## Rejani tahrirlash
 
 ```bash
-crontab -l     # показать текущие задачи
-crontab -e     # изменить
-crontab -r     # удалить все (осторожно)
+crontab -l     # joriy vazifalarni koʻrsatish
+crontab -e     # oʻzgartirish
+crontab -r     # hammasini oʻchirish (ehtiyot boʻling)
 ```
 
 Crontab — bu shunchaki matn fayl, har satrda bitta vazifa. `crontab myfile` uni o'rnatadi, `crontab -l` o'rnatilganini ko'rsatadi. Rejani faylda saqlasangiz — ya'ni `crontab -e` ichida ko'z yopib tahrirlash o'rniga — uni git'da tutib, har qanday mashinaga ko'chirish mumkin.

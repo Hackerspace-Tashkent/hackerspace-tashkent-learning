@@ -4,7 +4,7 @@ Buyruqlarni qo'lda ishga tushirdingiz. Skript buyruqlar ketma-ketligini saqlaydi
 
 ```bash
 #!/usr/bin/env bash
-# Описание: что делает скрипт
+# Izoh: skript nima qiladi
 echo "Hello from a script"
 ```
 
@@ -18,9 +18,9 @@ count=3
 file="my notes.txt"
 
 echo "$name"      # Tashkent
-echo $name        # то же самое, но кавычки безопаснее
-echo "$file"      # my notes.txt — один аргумент
-echo $file        # my и notes.txt — два аргумента
+echo $name        # xuddi shu, lekin tirnoq xavfsizroq
+echo "$file"      # my notes.txt — bitta argument
+echo $file        # my va notes.txt — ikki argument
 ```
 
 > **Izoh.** O'zgaruvchilarni har doim qo'shtirnoq ichida oling: "$var". Aks holda bo'shliqlarda bo'linadi.
@@ -83,9 +83,9 @@ echo "age=$age"
 Har bir buyruq raqam bilan tugaydi: 0 — muvaffaqiyat, boshqasi — xato. `$?` oxirgi buyruq kodini saqlaydi.
 
 ```bash
-set -e   # остановиться при первой ошибке
-set -u   # считать ошибкой неопределённую переменную
-set -o pipefail   # ошибка в пайпе, если кто-то в нём упал
+set -e   # birinchi xatoda toʻxtash
+set -u   # aniqlanmagan oʻzgaruvchini xato deb hisoblash
+set -o pipefail   # paipda kimdir tushsa, xato boʻladi
 ```
 
 > **Izoh.** `set -e` ning o'tkir burchaklari bor: `if` ichida, manfiy shartda va quvurning oxirgi buyrug'idan tashqarida ishlamaydi.

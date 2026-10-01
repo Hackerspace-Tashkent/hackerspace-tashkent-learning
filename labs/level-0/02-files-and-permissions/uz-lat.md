@@ -16,9 +16,9 @@ ls -l
 `chmod` ruxsatlarni o'zgartiradi. Raqamlarni yotirish oson: 4 — o'qish, 2 — yozish, 1 — bajarish.
 
 ```bash
-chmod 644 notes.txt   # rw-r--r-- : обычный файл
-chmod 755 script.sh  # rwxr-xr-x : скрипт
-chmod +x script.sh   # просто сделать исполняемым
+chmod 644 notes.txt   # rw-r--r-- : oddiy fayl
+chmod 755 script.sh  # rwxr-xr-x : skript
+chmod +x script.sh   # shunchaki bajariladigan qilish
 ```
 
 `chown` egasini o'zgartiradi. O'z fayllaringiz guruhini `chgrp` bilan o'zgartirasiz.

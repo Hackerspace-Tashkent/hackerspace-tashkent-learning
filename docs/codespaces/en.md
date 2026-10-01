@@ -4,7 +4,7 @@ A Codespace is a Linux machine in the browser. Nothing to install, nothing to br
 
 ## Start
 
-1. Open the repository on GitHub and switch to the branch with your practice.
+1. Open the repository on GitHub on the `main` branch — the labs are in `labs/`.
 2. Click the green **Code** button, then the **Codespaces** tab.
 3. Choose a machine size: **2 cores, 4 GB** is enough for every practice in this track.
 4. Click **Create codespace** and wait about a minute.
@@ -25,10 +25,14 @@ Codespaces bill by the hour and idle ones keep burning quota. The repository is 
 
 - **Small machine.** The devcontainer requests 2 cores and 4 GB, the cheapest size that works.
 - **Nothing heavy inside.** No desktop, no build tools unless the lesson needs them.
-- **Stop when idle.** Organization settings stop a codespace after 30 minutes of inactivity.
-- **Delete after stop.** Retention is set to 0 days, so a stopped codespace is removed automatically.
+- **Stops when you close it.** The devcontainer sets `shutdownAction: stopContainer`:
+  close the Codespaces window and the machine stops on its own.
+- **Organization limits are not configured.** The 30-minute idle stop and the 0-day retention
+  are not set. That means: rely on stopping it yourself.
 
-> **Note.** You can also stop it yourself: in the Codespaces menu choose *Stop codespace*. Deleting takes a few seconds.
+> **Important.** An idle codespace still counts against your quota. Close it yourself:
+> in the Codespaces menu choose *Stop codespace*. Deleting takes a few seconds.
+> If you hit the limit, close the machines you are not using first.
 
 ## If the Codespace is too slow
 
