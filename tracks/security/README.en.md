@@ -26,6 +26,7 @@ into a crime.
 What the server sees, and why it matters.
 
 - [What the server sees](level-0/01-what-the-server-sees/en.md)
+- [The secret in the code](level-0/02-secrets-in-code/en.md)
 
 You send headers. The server believes them. So what you claim about
 yourself proves nothing. This is the ground everything else stands on.
@@ -76,7 +77,7 @@ the answer is to understand it.
 
 ## What is not here yet
 
-Written and verified: level S0, one topic.
+Written and verified: level S0, **two topics**.
 
 Not written: S1, S2, S3. Not because it is hard, but because **not one
 person has gone through even S0**. The first topic has to be shown to

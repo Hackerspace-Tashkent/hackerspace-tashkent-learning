@@ -76,7 +76,7 @@ javobga faqat tushunib borish orqali yetish mumkin.
 
 ## Hali yo'q bo'lganlar
 
-Yozilgan va tekshirilgan: S0 darajasi, bitta mavzu.
+Yozilgan va tekshirilgan: S0 darajasi, **ikki mavzu**.
 
 Yozilmagan: S1, S2, S3. Sabab qiyinlik emas, balki shuki **birorta odam
 hatto S0 ni ham o'tmagan**. Birinchi mavzu ishlashini ko'rsatish kerak,
