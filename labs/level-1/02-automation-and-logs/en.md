@@ -7,11 +7,11 @@ A task that runs by itself is worth far more than a task you remember to do. Thi
 Every command has three streams: standard output for results, standard error for problems, and standard input for input. `>` writes a file, `>>` appends, `2>` redirects errors.
 
 ```bash
-ls > out.txt          # только stdout, очистит файл
-ls >> out.txt         # добавит в конец
-ls 2> err.txt         # только stderr
-ls > all.txt 2>&1     # и то и другое в один файл
-ls 2>&1 | grep txt    # ошибки тоже попадут в пайп
+ls > out.txt          # stdout only, truncates the file
+ls >> out.txt         # appends to the end
+ls 2> err.txt         # stderr only
+ls > all.txt 2>&1     # both into one file
+ls 2>&1 | grep txt    # errors also go into the pipe
 ```
 
 > **Note.** A log is a file you append to and never truncate. Use `>>`, and put the date at the start of every line.
@@ -28,7 +28,7 @@ printf '%s finished with code %d\n' "$(date '+%F %T')" "$?" >> "$log"
 `cron` runs a command at a given time. Each line has five fields: minute, hour, day of month, month, day of week, then the command.
 
 ```bash
-# минута час день месяц день_недели  команда
+# minute hour day month weekday  command
 */5 *   *   *     *            /home/me/report.sh
 0  9   *   *     1-5          /home/me/backup.sh
 30 18  *   *     *            /home/me/clean.sh
@@ -43,9 +43,9 @@ Never let cron mail you. Redirect both streams to a log file instead.
 ## Editing your schedule
 
 ```bash
-crontab -l     # показать текущие задачи
-crontab -e     # изменить
-crontab -r     # удалить все (осторожно)
+crontab -l     # show the current jobs
+crontab -e     # edit
+crontab -r     # delete everything (careful)
 ```
 
 A crontab is just a text file with one job per line. `crontab myfile` installs it, `crontab -l` shows what is installed. Keeping your schedule in a file — instead of editing it blind inside `crontab -e` — means you can keep it in git and reuse it on any machine.

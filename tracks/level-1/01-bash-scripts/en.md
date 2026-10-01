@@ -4,7 +4,7 @@ You have run commands by hand. A script saves a sequence of commands so you can 
 
 ```bash
 #!/usr/bin/env bash
-# Описание: что делает скрипт
+# Description: what the script does
 echo "Hello from a script"
 ```
 
@@ -18,9 +18,9 @@ count=3
 file="my notes.txt"
 
 echo "$name"      # Tashkent
-echo $name        # то же самое, но кавычки безопаснее
-echo "$file"      # my notes.txt — один аргумент
-echo $file        # my и notes.txt — два аргумента
+echo $name        # same thing, but quotes are safer
+echo "$file"      # my notes.txt — one argument
+echo $file        # my and notes.txt — two arguments
 ```
 
 > **Note.** Always quote variables: "$var". Unquoted values break on spaces and empty values disappear.
@@ -83,9 +83,9 @@ echo "age=$age"
 Every command ends with a number: 0 means success, anything else means failure. `$?` holds the code of the last command.
 
 ```bash
-set -e   # остановиться при первой ошибке
-set -u   # считать ошибкой неопределённую переменную
-set -o pipefail   # ошибка в пайпе, если кто-то в нём упал
+set -e   # stop at the first error
+set -u   # treat an undefined variable as an error
+set -o pipefail   # fail the pipe if anyone in it failed
 ```
 
 > **Note.** `set -e` has sharp edges: it does not trigger in `if`, in a negated condition, or in a pipeline except the last command. Use it in scripts, not blindly in an interactive shell.

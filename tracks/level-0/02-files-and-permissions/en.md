@@ -16,9 +16,9 @@ ls -l
 `chmod` changes permissions. Numbers are easier to remember: 4 read, 2 write, 1 execute.
 
 ```bash
-chmod 644 notes.txt   # rw-r--r-- : обычный файл
-chmod 755 script.sh  # rwxr-xr-x : скрипт
-chmod +x script.sh   # просто сделать исполняемым
+chmod 644 notes.txt   # rw-r--r-- : ordinary file
+chmod 755 script.sh  # rwxr-xr-x : script
+chmod +x script.sh   # just make it executable
 ```
 
 `chown` changes the owner. You can change the group of your own files with `chgrp`.

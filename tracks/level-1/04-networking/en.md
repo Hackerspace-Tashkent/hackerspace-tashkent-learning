@@ -5,10 +5,10 @@ A server is just a program that listens on a port. Once you can start one and ta
 ## Addresses and ports
 
 ```bash
-ip addr              # адреса всех интерфейсов
-ip route             # куда идёт трафик
-hostname -I          # свой адрес
-ss -tlnp             # кто слушает порты
+ip addr              # addresses of every interface
+ip route             # where the traffic goes
+hostname -I          # your own address
+ss -tlnp             # who is listening on ports
 ```
 
 `127.0.0.1` is `localhost` — you talking to yourself. A port is a number from 1 to 65535 that picks one program among the ones listening.
@@ -24,10 +24,10 @@ Pick a port above 1024 — those below need root. `--bind 127.0.0.1` keeps it re
 ## Talking to a server
 
 ```bash
-curl -I http://127.0.0.1:8000     # только заголовки
-curl -s http://127.0.0.1:8000 | head    # первые строки
-curl -o page.html http://127.0.0.1:8000 # сохранить в файл
-echo $?                                # код: 0 — связь есть
+curl -I http://127.0.0.1:8000     # headers only
+curl -s http://127.0.0.1:8000 | head    # first lines
+curl -o page.html http://127.0.0.1:8000 # save to a file
+echo $?                                # code: 0 — reachable
 ```
 
 - `200` OK
@@ -43,6 +43,29 @@ A host is a name that points to an address. `/etc/hosts` is the small local list
 ```bash
 echo "127.0.0.1  mysite.local" | sudo tee -a /etc/hosts
 curl -I http://mysite.local:8000
+```
+
+## If `ip` and `ss` are not found
+
+The commands `ip` and `ss` live in the `iproute2` package. Some Codespaces
+builds do not have it, and you will see:
+
+```bash
+ip: command not found
+```
+
+That is not a broken lesson. There is a way around it:
+
+```bash
+hostname -I          # your own address — always present
+cat /proc/net/tcp    # open ports — also always present
+```
+
+Reading `/proc/net/tcp` is harder than reading `ss`, so the exercise stays
+with `hostname -I`. To install the missing piece:
+
+```bash
+sudo apt-get install -y iproute2
 ```
 
 ## Practice

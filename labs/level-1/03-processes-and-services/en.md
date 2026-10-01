@@ -5,11 +5,11 @@ Every running program is a process with a number. Knowing how to look at them, p
 ## Looking at processes
 
 ```bash
-ps                  # процессы текущего терминала
-ps aux               # все процессы всех пользователей
-ps -ef               # то же, другой формат
-top                  # обновляется live, q — выход
-pgrep -f "python"    # найти по имени
+ps                  # processes of this terminal
+ps aux               # every process of every user
+ps -ef               # the same, another format
+top                  # updates live, q to quit
+pgrep -f "python"    # find by name
 ```
 
 Every process also has a directory in `/proc` with the same number. It is the honest way to see what a program thinks about itself.
@@ -17,13 +17,13 @@ Every process also has a directory in `/proc` with the same number. It is the ho
 ## Background and stopping
 
 ```bash
-sleep 300 &        # запустить в фоне
-jobs                # что запущено из этого терминала
-nohup ./long.sh &   # пережить закрытие терминала
-disown -a           # забыть о фоновых процессах
+sleep 300 &        # run in the background
+jobs                # what this terminal started
+nohup ./long.sh &   # survive closing the terminal
+disown -a           # forget the background jobs
 
-kill 12345          # попросить завершиться (SIGTERM)
-kill -9 12345       # убить немедленно (SIGKILL)
+kill 12345          # ask it to stop (SIGTERM)
+kill -9 12345       # kill right away (SIGKILL)
 ```
 
 > **Note.** `kill` without a capital K is not a joke: plain `kill` asks politely. `-9` cannot be caught, so a program has no chance to clean up. Try polite first.

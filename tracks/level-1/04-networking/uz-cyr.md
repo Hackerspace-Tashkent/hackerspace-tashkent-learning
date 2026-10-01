@@ -45,6 +45,29 @@ echo "127.0.0.1  mysite.local" | sudo tee -a /etc/hosts
 curl -I http://mysite.local:8000
 ```
 
+## Агар `ip` ва `ss` топилмади
+
+`ip` ва `ss` буйруқлари `iproute2` пакетида яшайди. Codespaces нинг
+баъзи қурилишларида йўқ, ва сиз шуни кўрасиз:
+
+```bash
+ip: command not found
+```
+
+Бу дарс бузилгани эмас. Йўл бор:
+
+```bash
+hostname -I          # ўз манзилингиз — доим бор
+cat /proc/net/tcp    # очиқ портлар — ҳам доим бор
+```
+
+`/proc/net/tcp` чиқишини ўқиш `ss` дан қийинроқ, шунинг учун машқ
+`hostname -I` да қолади. Йўқ бўлса, ўрнатиш учун:
+
+```bash
+sudo apt-get install -y iproute2
+```
+
 ## Амалиёт
 
 1. `lab-work` каталогини йаратинг ва унга ихтийорий матнли `index.html` файлини қўйинг.

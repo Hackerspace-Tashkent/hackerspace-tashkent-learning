@@ -45,6 +45,29 @@ echo "127.0.0.1  mysite.local" | sudo tee -a /etc/hosts
 curl -I http://mysite.local:8000
 ```
 
+## Если `ip` и `ss` не нашлись
+
+Команды `ip` и `ss` живут в пакете `iproute2`. В некоторых сборках
+Codespaces его нет, и ты увидишь:
+
+```bash
+ip: command not found
+```
+
+Это не поломка урока. Есть запасной путь:
+
+```bash
+hostname -I          # свой адрес — есть всегда
+cat /proc/net/tcp    # открытые порты — тоже всегда
+```
+
+Разобраться в выводе `/proc/net/tcp` сложнее, чем в `ss`, поэтому учебной
+задачей останется `hostname -I`. Установить недостающее можно так:
+
+```bash
+sudo apt-get install -y iproute2
+```
+
 ## Практика
 
 1. Создай каталог `lab-work` и положи в него файл `index.html` с любым текстом.
