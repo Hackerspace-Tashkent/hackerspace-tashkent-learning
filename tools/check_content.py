@@ -367,6 +367,53 @@ def check_foreign_comments(r):
             r.ok(name)
 
 
+def check_code_blocks_run(r):
+    """Код из урока должен запускаться, а fence не должен липнуть к коду.
+
+    Дефект нашла проверка на глаз: закрывающий ``` прилип к
+    serve_forever(), и ученик копировал сломанный Python. Прежние тесты
+    это пропускали, потому что эталон писался руками, а не копировался
+    из документа. Значит и проверять надо документ, а не эталон.
+    """
+    import py_compile
+    import tempfile
+
+    # 1. fence, прилипший к последней строке кода
+    glued = re.compile(r"[^\s`]\s*```")
+    for p in walk("md"):
+        text = open(os.path.join(ROOT, p), encoding="utf-8").read()
+        for i, line in enumerate(text.split("\n"), 1):
+            if line.startswith("```"):
+                continue
+            if re.search(r"\S```", line):
+                r.error("fence прилип к коду: " + p, "строка %d" % i)
+
+    # 2. каждый блок python обязан быть синтаксически корректным
+    for p in list(walk("ru.md")) + list(walk("en.md")):
+        text = open(os.path.join(ROOT, p), encoding="utf-8").read()
+        for m in re.finditer(r"```python\n(.*?)\n```", text, re.S):
+            code = m.group(1)
+            if not code.strip():
+                continue
+            if "..." in code or "<<<<" in code:
+                continue
+            with tempfile.NamedTemporaryFile(
+                    "w", suffix=".py", delete=False,
+                    encoding="utf-8") as f:
+                f.write(code + "\n")
+                tmp = f.name
+            try:
+                py_compile.compile(tmp, doraise=True)
+                r.ok("блок python компилируется: " + p)
+            except py_compile.PyCompileError as e:
+                first = str(e).strip().split("\n")[-1][:90]
+                r.error("блок python не компилируется: " + p, first)
+            except Exception as e:  # noqa: BLE001
+                r.error("блок python не компилируется: " + p, str(e)[:90])
+            finally:
+                os.unlink(tmp)
+
+
 def main():
     r = Report()
     check_encoding(r)
@@ -379,6 +426,7 @@ def main():
     check_script_mixing(r)
     check_foreign_comments(r)
     check_forbidden(r)
+    check_code_blocks_run(r)
 
     if "--links" in sys.argv:
         check_external_links(r)

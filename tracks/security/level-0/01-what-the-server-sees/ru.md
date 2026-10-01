@@ -73,7 +73,8 @@ class Handler(BaseHTTPRequestHandler):
         self.reply(404, {"error": "not found"})
 
 
-HTTPServer(("127.0.0.1", 8000), Handler).serve_forever()```
+HTTPServer(("127.0.0.1", 8000), Handler).serve_forever()
+```
 
 ## Порядок работы
 
