@@ -62,6 +62,70 @@ Drayver qiymatni oʻzi ekranlaydi, ism ichidagi tirnoqlar tirnoq
 qoladi, kod boʻlmaydi. Yopishtirish hech qachon mumkin emas — hatto
 "zararsiz koʻrinadigan" soʻrov uchun ham.
 
+## Senga nima kerak
+
+`sqlite3` — standart kutubxonadagi modul, bazani bir qatorda ochiladi:
+
+```python
+import sqlite3
+
+db = sqlite3.connect("data.db")
+rows = db.execute("SELECT name, score FROM people").fetchall()
+```
+
+Server 08-darsdagidek koʻtariladi: `127.0.0.1:8000` da `HTTPServer` va
+`parse_qs` orqali `?name=...` ni oʻqiydigan ishchi. Pastda toʻliq
+keltirilgan, mavzuning oʻzi shu uchta qatorda.
+
+```python
+#!/usr/bin/env python3
+"""Уязвимый сервер. Запрос склеен из строки -- это и есть дыра."""
+import json
+import sqlite3
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from urllib.parse import parse_qs, urlparse
+
+PORT = 8000
+
+
+def query(name):
+    db = sqlite3.connect("data.db")
+    # ДВАЖДЫ СПРОСИЛИ, КАК ЭТО ДЕЛАТЬ, И НИ РАЗУ НЕ СДЕЛАЛИ
+    sql = "SELECT name, score FROM people WHERE name = '" + name + "'"
+    rows = db.execute(sql).fetchall()
+    db.close()
+    return sql, rows
+
+
+class H(BaseHTTPRequestHandler):
+    def do_GET(self):
+        u = urlparse(self.path)
+        if u.path != "/lookup":
+            self.send_error(404)
+            return
+        name = parse_qs(u.query).get("name", [""])[0]
+        sql, rows = query(name)
+        body = json.dumps({"sql": sql, "rows": rows},
+                          ensure_ascii=False).encode()
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def log_message(self, *a):
+        pass
+
+
+HTTPServer(("127.0.0.1", PORT), H).serve_forever()
+```
+
+Alohida terminalda, `data.db` turgan papkadan ishga tushiring:
+
+```bash
+python3 srv.py
+```
+
 ## Sen nima qilasan
 
 Senga `data.db` beriladi: oltita ismli `people` jadvali va bitta

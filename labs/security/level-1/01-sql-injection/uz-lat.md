@@ -22,6 +22,16 @@ Tozalasang, vazifa hisoblanmaydi.
 ## Tartib
 
 1. `bash setup.sh` — `data.db` yaratadi.
+
+2. Darsdagi `srv.py` ni `lab-work/` ga koʻchir va ishga tushir:
+
+   ```bash
+   cd lab-work
+   python3 srv.py
+   ```
+
+   Server alohida terminalda turishi kerak: u ishlayotganda
+   siz boshqa terminaldan `curl` bilan unga murojaat qilasiz.
 2. Qator yopishtirish bilan `srv.py` yoz.
 3. Halol soʻrov → bitta qator.
 4. `' OR '1'='1` → `people` ning barcha qatorlari.

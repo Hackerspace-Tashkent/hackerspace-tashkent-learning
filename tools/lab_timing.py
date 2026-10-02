@@ -63,6 +63,33 @@ def run_one(level, name, chk):
         env["HOME"] = tmp                    # чтобы ничего не тянулось из дома
         env["CHECK_LANG"] = env.get("CHECK_LANG", "ru")
 
+        # Изолированный HOME пустой, и без git-конфига `git commit`
+        # внутри фикстуры падает: репозиторий остаётся без коммитов,
+        # и практика отвергает пустое состояние по ложной причине.
+        # Задаём идентичность, иначе проверка харнесса ничего не значит.
+        subprocess.run("git config --global user.email test@example.com"
+                       " && git config --global user.name test"
+                       " && git config --global init.defaultBranch main",
+                       shell=True, cwd=tmp, capture_output=True, env=env)
+
+        # Состояние "ученик только начал" -- это уже ПОСЛЕ фикстуры.
+        # Раньше фикстура не запускалась, и харнесс мерил состояние,
+        # в котором человек не бывает. Из-за этого практика, чьи
+        # файлы создаёт фикстура, проходила наглухо: S0-02 давала 5/7
+        # ещё до того, как ученик что-либо сделал.
+        #
+        # Имя не обязано быть setup.sh: у S0-02 фикстура называется
+        # setup-repo.sh, и харнесс её не находил -- практика проходила
+        # по причине, которой в жизни не бывает.
+        # Переменная цикла не должна затирать имя практики: ниже оно
+        # попадает в отчёт, и при shadowing строка называлась setup-repo.sh.
+        for setup_name in sorted(os.listdir(dst_dir)):
+            if re.match(r"^setup.*\.sh$", setup_name):
+                subprocess.run(["bash", setup_name], cwd=dst_dir,
+                               capture_output=True, text=True,
+                               timeout=300, env=env)
+                break
+
         t0 = time.time()
         proc = subprocess.run(["bash", local_chk], cwd=dst_dir,
                               capture_output=True, text=True, timeout=600,
@@ -97,11 +124,11 @@ def main():
     bad = [r for r in results if not r["empty_rejected"]]
 
     if as_md:
-        print("| Практика | Проверок | Пустое отвергнуто | Секунд |")
-        print("|---|---|---|---|")
+        print("| Практика | Прошло | Проверок | Пустое отвергнуто | Секунд |")
+        print("|---|---|---|---|---|")
         for r in results:
-            print("| %s/%s | %d | %s | %.1f |"
-                  % (r["level"], r["lab"], r["total"],
+            print("| %s/%s | %d | %d | %s | %.1f |"
+                  % (r["level"], r["lab"], r["passed"], r["total"],
                      "да" if r["empty_rejected"] else "**НЕТ**", r["seconds"]))
         print("| **всего** | **%d** | | **%.1f** |" % (total_checks, total_time))
         return 0

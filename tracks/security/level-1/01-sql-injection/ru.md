@@ -62,6 +62,71 @@ rows = db.execute(
 кавычками, а не кодом. Склеивать нельзя **никогда** — даже «вроде
 безобидный» запрос.
 
+## Что тебе понадобится
+
+`sqlite3` — модуль из стандартной библиотеки, файл базы открывается
+одной строкой:
+
+```python
+import sqlite3
+
+db = sqlite3.connect("data.db")
+rows = db.execute("SELECT name, score FROM people").fetchall()
+```
+
+Сервер поднимается ровно так же, как в уроке 08: `HTTPServer` на
+`127.0.0.1:8000` и обработчик, читающий `?name=...` через `parse_qs`.
+Ниже он целиком — с тремя строками, ради которых затевалась тема.
+
+```python
+#!/usr/bin/env python3
+"""Уязвимый сервер. Запрос склеен из строки -- это и есть дыра."""
+import json
+import sqlite3
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from urllib.parse import parse_qs, urlparse
+
+PORT = 8000
+
+
+def query(name):
+    db = sqlite3.connect("data.db")
+    # ДВАЖДЫ СПРОСИЛИ, КАК ЭТО ДЕЛАТЬ, И НИ РАЗУ НЕ СДЕЛАЛИ
+    sql = "SELECT name, score FROM people WHERE name = '" + name + "'"
+    rows = db.execute(sql).fetchall()
+    db.close()
+    return sql, rows
+
+
+class H(BaseHTTPRequestHandler):
+    def do_GET(self):
+        u = urlparse(self.path)
+        if u.path != "/lookup":
+            self.send_error(404)
+            return
+        name = parse_qs(u.query).get("name", [""])[0]
+        sql, rows = query(name)
+        body = json.dumps({"sql": sql, "rows": rows},
+                          ensure_ascii=False).encode()
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def log_message(self, *a):
+        pass
+
+
+HTTPServer(("127.0.0.1", PORT), H).serve_forever()
+```
+
+Запускается в отдельном терминале, из папки с `data.db`:
+
+```bash
+python3 srv.py
+```
+
 ## Что ты сделаешь
 
 Тебе дадут базу `data.db`: таблица `people` с шестью именами и

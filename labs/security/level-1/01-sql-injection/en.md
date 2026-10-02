@@ -22,6 +22,16 @@ not a mistake. Fix it and the lab will not count.
 ## Order
 
 1. `bash setup.sh` — creates `data.db`.
+
+2. Copy `srv.py` from the lesson into `lab-work/` and run it:
+
+   ```bash
+   cd lab-work
+   python3 srv.py
+   ```
+
+   The server needs its own terminal: while it runs, you talk to
+   it with `curl` from another one.
 2. Write `srv.py` with the glued string.
 3. Honest request → one row.
 4. `' OR '1'='1` → all rows of `people`.
