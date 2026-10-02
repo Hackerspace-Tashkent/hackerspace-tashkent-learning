@@ -85,3 +85,5 @@ labs/**/.lab-data/
 
 # отчёт собственного прохода — заполняется вручную
 SELF-TEST.md
+labs/**/lab.tar.gz
+labs/**/.fixture/

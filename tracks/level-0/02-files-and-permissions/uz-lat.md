@@ -43,4 +43,27 @@ tar -xzf backup.tar.gz
 nano notes.txt
 ```
 
+## Skript nima
+
+Skript — bu oddiy matn fayli, ichida buyruqlar. `.sh` kengaytmasi
+o'z-o'zidan hech nima qilmaydi: Linux birinchi qatorga qaraydi.
+
+```bash
+#!/bin/bash
+echo " Salom, bu mening birinchi skriptim"
+```
+
+Birinchi qator **shebang** deyiladi. U tizimga qaysi interpretatorni
+ishga tushirish kerakligini aytadi. U o'zi bajarilmaydi — bu yo'nalish.
+
+`hello.sh` yarat, ichiga shu ikki qatorni yoz, keyin:
+
+```bash
+chmod +x hello.sh
+./hello.sh
+```
+
+`chmod +x` bo'lmasa «Permission denied» chiqadi: tizim faylni ishga
+tushirish mumkin bo'lgan dastur deb hisoblamaydi.
+
 > **Izoh.** Skriptni to'g'ridan-to'g'ri ishga tushirish uchun bajarish ruxsati kerak: `chmod +x script.sh`.

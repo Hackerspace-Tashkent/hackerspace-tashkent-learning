@@ -66,6 +66,11 @@ ls | grep txt
 
 `find` searches for files by name, `grep` searches inside files.
 
+`wc` counts: `wc -l` lines, `wc -w` words, `wc -c` characters.
+`less` pages through long output, `q` quits.
+
+A line using `wc -l` counts how many lines a file has.
+
 ```bash
 find ~ -name '*.txt' 2>/dev/null
 grep -r 'TODO' ~ 2>/dev/null | head

@@ -66,6 +66,11 @@ ls | grep txt
 
 `find` fayl nomi bo'yicha, `grep` ichki matn bo'yicha qidiradi.
 
+`wc` hisoblaydi: `wc -l` — satrlar, `wc -w` — so'zlar, `wc -c` — belgilar.
+`less` uzun natijani sahifama-sahifa ko'rsatadi, `q` — chiqish.
+
+`wc -l` ishlatilgan qator fayldagi satrlar sonini sanaydi.
+
 ```bash
 find ~ -name '*.txt' 2>/dev/null
 grep -r 'TODO' ~ 2>/dev/null | head

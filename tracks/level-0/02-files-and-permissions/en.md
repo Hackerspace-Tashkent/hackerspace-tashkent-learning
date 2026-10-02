@@ -43,4 +43,27 @@ tar -xzf backup.tar.gz
 nano notes.txt
 ```
 
+## What a script is
+
+A script is an ordinary text file holding commands. The `.sh` extension
+does nothing by itself: Linux looks at the first line.
+
+```bash
+#!/bin/bash
+echo "Hello, this is my first script"
+```
+
+That first line is the **shebang**. It tells the system which interpreter
+to run. It is not executed itself — it is a hint.
+
+Create `hello.sh`, put those two lines in it, then:
+
+```bash
+chmod +x hello.sh
+./hello.sh
+```
+
+Without `chmod +x` you get "Permission denied": the system does not treat
+the file as a program it may run.
+
 > **Note.** To run a script directly, it needs the execute bit: `chmod +x script.sh`.
