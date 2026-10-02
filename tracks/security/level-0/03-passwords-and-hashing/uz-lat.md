@@ -68,6 +68,10 @@ ishontirilgan soʻzlar. Va `target.txt` — bitta xesh.
 ```python
 import hashlib
 
+# Bu -- misol uchun. Oʻzingiz topgan soʻzni shu yerga yozing.
+PASSWORD = "brindle"
+
+
 def pbkdf2(password, salt):
     return hashlib.pbkdf2_hmac("sha256", password.encode(),
                                salt.encode(), 100000).hex()

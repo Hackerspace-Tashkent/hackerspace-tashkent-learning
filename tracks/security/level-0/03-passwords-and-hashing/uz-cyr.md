@@ -68,6 +68,10 @@ hashlib.pbkdf2_hmac("sha256", password.encode(), salt.encode(), 100000).hex()
 ```python
 import hashlib
 
+# Бу — мисол учун. Сиз топиган сўзни шу ерга ёзинг.
+PASSWORD = "brindle"
+
+
 def pbkdf2(password, salt):
     return hashlib.pbkdf2_hmac("sha256", password.encode(),
                                salt.encode(), 100000).hex()

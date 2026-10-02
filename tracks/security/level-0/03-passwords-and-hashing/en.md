@@ -72,6 +72,10 @@ exist online. And `target.txt` — one hash.
 ```python
 import hashlib
 
+# An example value. Put the word you actually found in crack.txt here.
+PASSWORD = "brindle"
+
+
 def pbkdf2(password, salt):
     return hashlib.pbkdf2_hmac("sha256", password.encode(),
                                salt.encode(), 100000).hex()
