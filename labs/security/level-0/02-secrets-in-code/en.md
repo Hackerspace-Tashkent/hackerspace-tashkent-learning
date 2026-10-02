@@ -25,7 +25,7 @@ you exactly zero out of five.
 3. Write its hash into `lab-work/proof.txt`.
 4. Add a `.gitignore` entry about secrets — say `*.secret` and `.env` —
    and **commit it**. Without the commit, items 3 and 4 do not count.
-5. Answer in `notes.md`: what is needed for the key to really be gone?
+5. Answer in `lab-work/notes.md`: what is needed for the key to really be gone?
 
 ## Verify
 

@@ -70,8 +70,11 @@ grep -rn 'vt-lark' . || echo "current version is clean"
 printf '%s' 'vt-lark-tessera-5Q2fK' | sha256sum | cut -c1-12 > ../proof.txt
 ```
 
-7. Answer in `notes.md`: **what has to happen for the key to really stop
-   existing?**
+7. Answer in `lab-work/notes.md` — **what has to happen for the key to
+   really stop existing?**
+
+   You are in `lab-work/repo` right now, so the path from there is
+   `../notes.md`.
 
 ## The answer worth reaching
 

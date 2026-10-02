@@ -3,7 +3,7 @@
 | # | Talab | Nimani anglatadi |
 |---|---|---|
 | 1 | `proof.txt` da tarixda topilgan kalitning xeshi bor | sen haqiqatan tarixda izlagan |
-| 2 | `notes.md` da javob bor, boʻsh fayl emas | boʻsh fayl hisobga olinmaydi |
+| 2 | `lab-work/notes.md` da javob bor, boʻsh fayl emas | boʻsh fayl hisobga olinmaydi |
 | 3 | oʻzingizning ishingizni kommit qildingiz | fixture 2 ta kommit qoʻyadi, sen 3 ta qilasan |
 | 4 | `.gitignore` ga sir haqida yozuv qoʻshildi | shunchaki fayl emas, maʼnoli yozuv |
 | 5 | tarix kalitni saqlab turibdi — va bu toʻgʻri | tarixni **qayta yozma** |
@@ -25,7 +25,7 @@ chiqariladi.
 3. Uning xeshini `lab-work/proof.txt` ga yoz.
 4. `.gitignore` ga sir haqida yozuv qoʻsh — masalan, `*.secret` va
    `.env` — va **kommit qil**. Kommit qilmasang 3 va 4 hisoblanmaydi.
-5. `notes.md` da javob ber: kalit haqiqatan yoʻq boʻlishi uchun
+5. `lab-work/notes.md` da javob ber: kalit haqiqatan yoʻq boʻlishi uchun
    nima kerak?
 
 ## Tekshirish

@@ -70,8 +70,10 @@ grep -rn 'vt-lark' . || echo "joriy versiya toza"
 printf '%s' 'vt-lark-tessera-5Q2fK' | sha256sum | cut -c1-12 > ../proof.txt
 ```
 
-7. `notes.md` da javob ber: **kalit haqiqatan yoʻq boʻlishi uchun nima
+7. `lab-work/notes.md` da javob ber: **kalit haqiqatan yoʻq boʻlishi uchun nima
    qilish kerak?**
+
+   Hozir siz `lab-work/repo` ichidasiz — u yandan yo'l `../notes.md`.
 
 ## E'tib beriladigan javob
 
