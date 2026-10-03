@@ -56,7 +56,7 @@ ctx = ssl._create_unverified_context()
 
 ```python
 #!/usr/bin/env python3
-"""HTTPS-сервер с учебным самоподписанным сертификатом."""
+"""Ўқувчилар учун ўзи имзолаган сертификатли HTTPS сервер."""
 import http.server
 import json
 import ssl
@@ -77,11 +77,11 @@ class H(http.server.BaseHTTPRequestHandler):
         pass
 
 
-# Три строки, ради которых всё затевалось.
-ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)   # 1. серверная сторона TLS
-ctx.load_cert_chain("cert.pem", "key.pem")     # 2. предъявить сертификат
+# Учта қатор -- шу учун бутун машғулот бошланган.
+ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)   # 1. TLS сервер томони
+ctx.load_cert_chain("cert.pem", "key.pem")     # 2. сертификатни тақдим этиш
 srv = http.server.HTTPServer(("127.0.0.1", PORT), H)
-srv.socket = ctx.wrap_socket(srv.socket, server_side=True)  # 3. надеть TLS
+srv.socket = ctx.wrap_socket(srv.socket, server_side=True)  # 3. TLS кийиш
 srv.serve_forever()
 ```
 

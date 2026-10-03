@@ -1,41 +1,41 @@
 # HTTPS va sertifikatlar
 
-## Buni nega bilish kerak
+## Buuni nega bilish kerak
 
-Sen saytni ochasan va manzil qatorida quffa belgisini koʻrasan.
-Brauzer qanday bilsin ki bu bogʻlanish haqiqatan oʻsha sayt bilan,
-va oʻrtada biror turgan emas?
+Sen saytni ochib, manzil qatorida qulfa belgisini koʻrasiz.
+Brauzer qanday bildiki, bu bogʻlanish haqiqatan oʻsha sayt bilan va
+oʻrtada kimdir turmayapti?
 
-«Quffa chizilganligi uchun» emas. Quffa ikki holatda ham bir xil
-chiziladi: hamma joyida ham tartib, **va** biror kanalni ushlagan
-odam boʻlganda ham. Farqi koʻzga koʻrinmaydi. Farqi shundaki, brauzer
-**tekshiruvni** bajaradi.
+«Qulfa chizilgani uchun» emas. Qulfa ikki holatda ham bir xil
+chiziladi: hammasi joyida boʻlganda ham, **va** kimdir kanalni tutganda
+ham. Farqi koʻzga koʻrinmaydi. Farqi shundaki, brauzer **tekshiruvni**
+bajaradi.
 
-## Tekshiruv nimalardan iborat
+## Tekshiruv nimadan iborat
 
 **Sertifikat** — ochiq kalit kimga tegishli ekanini yozuvchi hujjat.
-Ichida nom bor (`CN`, zamonaviy sertifikatlarda esa `SAN`) va
-amaldagi muddat.
+Ichida nom bor (`CN`, zamonaviy sertifikatlarda esa `SAN`) va amaldagi
+muddat.
 
-**Ishonch zanjiri.** Yakka sertifikatning oʻzi hech nima anglamaydi:
-sertifikatni kim xohlagan chiqarishi mumkin. Kerak boʻlgan — siz
-ishonadigan kimsa, yaʼni **sertifikat markazi**. U sertifikatga imzo
-qoʻyadi, sizning uning ochiq kalitingiz allaqachon bor, demak imzoni
-tekshirish mumkin.
+**Ishonch zanjiri.** Yakka sertifikatning oʻzi hech narsani anglamaydi:
+sertifikatni kim xohlasa chiqara oladi. Kerak boʻlgani — siz ishonadigan
+kimsa, yaʼni **sertifikat markazi**. U sertifikatga imzo qoʻyadi,
+sizning uning ochiq kalitingiz allaqachon bor, demak imzoni tekshirish
+mumkin.
 
-**Iz.** Sertifikatda xesh bor — qisqa iz. U siz kutilgan narsa bilan
+**Iz.** Sertifikatda xesh bor — qiska iz. U siz kutilgan narsa bilan
 taqqoslanadi.
 
 ## Oʻz-oʻzidan imzolangan sertifikat
 
-Sertifikatni oʻzingiz chiqarishingiz mumkin — `openssl` buni qila
-oladi. Va u ishlaydi. Ammo brauzer unga **ishonmaydi**, chunki uni
-maʼlum markazlardan hech kim imzolamagan. Oʻzini markaz deb hisoblay
-olmaydi: aks holda har kim oʻziga hujjat imzolab, har kim boʻlib
-chiqishi mumkin boʻlardi.
+Sertifikatni oʻzingiz chiqarishingiz mumkin — `openssl` uni qila oladi.
+Va u ishlaydi. Ammo brauzer unga **ishonmaydi**, chunki uni maʼlum
+markazlardan hech kim imzolamagan. Oʻzini markaz deb hisoblay olmaydi:
+aks holda har kim oʻziga hujjat imzolab, har kim boʻlib chiqishi mumkin
+boʻlardi.
 
-Bu mashqda muammo yoʻq: ochiq kalit kimga ishonish kerakligini
-oʻzingiz hal qilasiz — oʻz sertifikatizni ishonchli qilib koʻrsatasiz.
+Bu mashqda muammo yoʻq: ochiq kalit kimga ishonsh kerakligini oʻzingiz
+hal qilasiz — oʻz sertifikatingizni ishonchli qilib koʻrsatasiz.
 
 ## Eng muhim qism
 
@@ -46,17 +46,17 @@ ctx = ssl._create_unverified_context()
 ```
 
 Shundan keyin **har qanday** sertifikatga, soxta boʻlsa ham, ulanish
-jimgina oʻtadi. Shifrlash oʻrnida turibdi, lekin u tomonda kim borligi
+jimgina oʻtadi. Shifrlash oʻrnida turadi, lekin u tomda kim borligi
 maʼlum emas. Bu — eshikni mahkamlab, teshikdan qaramay qoldirish.
 
 ## Server qismi
 
-Serverni sen yozmaysan — u allaqachin tushuntirilgan. Muhim boʻlgan uch
+Serverni sen yozmaysiz — u allaqachon tushuntirilgan. Muhim boʻlgan uch
 qator belgilangan, qolgani 08-darsdagi oddiy HTTP server.
 
 ```python
 #!/usr/bin/env python3
-"""HTTPS-сервер с учебным самоподписанным сертификатом."""
+"""Oʻquvchilar uchun oʻzi imzolagan sertifikatli HTTPS server."""
 import http.server
 import json
 import ssl
@@ -77,21 +77,21 @@ class H(http.server.BaseHTTPRequestHandler):
         pass
 
 
-# Три строки, ради которых всё затевалось.
-ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)   # 1. серверная сторона TLS
-ctx.load_cert_chain("cert.pem", "key.pem")     # 2. предъявить сертификат
+# Uchta qator -- shu uchun butun mashgʻulot boshlangan.
+ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)   # 1. TLS server tomoni
+ctx.load_cert_chain("cert.pem", "key.pem")     # 2. sertifikatni taqdim etish
 srv = http.server.HTTPServer(("127.0.0.1", PORT), H)
-srv.socket = ctx.wrap_socket(srv.socket, server_side=True)  # 3. надеть TLS
+srv.socket = ctx.wrap_socket(srv.socket, server_side=True)  # 3. TLS kiyish
 srv.serve_forever()
 ```
 
-**Bu yerda muhimi.** 1-qator TLS tomonini tanlaydi. 2-qator aytadi:
+**Bu erda muhimi.** 1-qator TLS tomonini tanlaydi. 2-qator aytadi:
 «mening sertifikatim va yopiq kalitim shu» — va server uni har
-ulangan odamga koʻrsatadi. 3-qator soketni oʻraydi, shundan keyin maʼlumot
-shifrlangan holda uchadi.
+ulgan odamga koʻrsatadi. 3-qator soketni oʻradi, shundan keyin maʼlumot
+shifrlangan holda uchishi.
 
-Eslatma: server sertifikatini koʻrsatishdan oldin **hech kimdan
-sabam soʻramaydi**. Sertifikatni koʻrsatish — ruxsat emas. Ruxsatni
+Eslatma: server sertifikatini koʻrsatishdan oldin **hech kimdan sabab
+soʻramaydi**. Sertifikatni koʻrsatish — ruxsat emas. Ruxsatni
 klient beradi, va darsning ikkinchi qismi aynan shu haqida.
 
 ## Sen nima qilasan
@@ -100,13 +100,13 @@ klient beradi, va darsning ikkinchi qismi aynan shu haqida.
 2. Bu boʻlimdagi `server.py` ni `lab-work/` ga koʻchir.
 3. `client.py` yoz: **tekshiruv bilan** va tekshiruvsiz ulanadi.
 4. `proof.txt` ga sertifikat SHA-256 izining birinchi 16 belgisini yoz.
-5. `notes.md` da javob ber: **shifrlash ishlayotgan boʻlsa,
+5. `notes.md` da javob ber: **shifrlash ishlayapti boʻlsa,
    tekshiruvsiz sertifikatda nimasi notoʻgʻri?**
 
 ## Buyruq
 
 Avval ish papkasini yaratib, unga oʻting. **Tekshiruv fayllarni aynan
-u yerda izlaydi.**
+u erda izlaydi.**
 
 ```bash
 mkdir -p lab-work
@@ -131,7 +131,7 @@ openssl x509 -in cert.pem -noout -fingerprint -sha256
 
 ## Vazifa chegarasi
 
-Hamma narsa `127.0.0.1` da, sizning kompyuteringizda, sizning
+Hamma narsa `127.0.0.1` da, sizning kompʼyuteringizda, sizning
 sertifikatingiz bilan boʻladi. Boshqalarning saytlari tekshirilmaydi
 va skanlanmaydi. Boshqa odamning sertifikatlarini tekshirish — bu
 mavzuning oʻquv maqsadi emas.

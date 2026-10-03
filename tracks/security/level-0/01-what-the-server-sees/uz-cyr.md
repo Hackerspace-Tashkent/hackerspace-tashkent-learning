@@ -43,11 +43,11 @@ X-Access-Key: sable-marmalade
 
 ```python
 #!/usr/bin/env python3
-"""Сервер-заглушка. Он доверяет заголовкам — это и есть проблема."""
+"""Сервер-заглушка. У сарлавҳаларга ишонади -- шу ҳам муаммо."""
 import json
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
-# Выдуманное имя: в интернете такого нет, ключ нельзя загуглить.
+# Хоёлган ном: интернетда бундай йўқ, калитни қидириб бўлмайди.
 ACCESS_KEY = "sable-marmalade-4710"
 DATA = [{"time": "12:00", "pm25": 42.3}, {"time": "12:05", "pm25": 39.8}]
 
@@ -62,8 +62,8 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_GET(self):
-        # Заголовок прислал клиент. Сервер ему верит.
-        # В настоящей системе такого быть не должно.
+        # Сарлавҳани мижоз юборди. Сервер уни ишонади.
+        # Ҳақиқий тизимда бундай бўлмаслиги керак.
         if self.headers.get("X-Debug") == "1":
             return self.reply(200, {"status": "ok", "debug_key": ACCESS_KEY})
 
@@ -110,7 +110,7 @@ curl -s -o /dev/null -w '%{http_code}\n' http://127.0.0.1:8000/readings
 биринчи 12 белгисидан, кичик ҳарфларда.
 
 ```bash
-printf '%s' 'калит' | sha256sum | cut -c1-12 > proof.txt
+printf '%s' 'kalit' | sha256sum | cut -c1-12 > proof.txt
 ```
 
 Текширув калитни ўзи олади, хешлайди ва солиштиради. Кўриб бўладиган

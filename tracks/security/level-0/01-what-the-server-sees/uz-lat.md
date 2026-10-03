@@ -2,14 +2,14 @@
 
 ## Buni nega bilish kerak
 
-Soʻrov yuborganda sen **oʻylagandan koʻra koʻp** narsa yuborasan.
-Sen yozganingdan tashqarida u yerda brauzer nomi, versiya, baʼzan til,
-baʼlan qayerdan kelgani maʼlumotlari bor.
+Soʻrov yuborganda sen **oʻylagandan koʻra koʻp** narsa yuborasiz.
+Sen yozganingdan tashqarida u erda brauzer nomi, versiya, baʼzan til,
+baʼzan qaerdan kelgani maʼlumotlari bor.
 
 Server bularning hammasini koʻradi. **Va ularga ishonadi.**
 
 Bundan kelib chiqadigan narsa yangi boshlovchilarni chalgʻitadi:
-**klientdan kelgan «men kim ekanim» haqidagi har qanday da'vo isbot
+**klientdan kelgan «men kim ekanim» haqidagi har qanday daʼvo isbot
 emas.**
 
 ## Soʻrovning uch qismi
@@ -25,16 +25,16 @@ X-Access-Key: sable-marmalade
 - **yoʻl** — nimaga;
 - **sarlavhalar** — qolgan hammasi. Va ularni soxtalash oson.
 
-Sarlavha — bu oddiy «ism: qiymat» juftligi. Oʻzgartirishni har qanday
-`curl` bilan yozish mumkin, brauzer kerak emas.
+Sarlavha — bu oddiy «ism: qiymat» juftligi. Oʻzinigizcha yozishni har qanday
+`curl` bilan mumkin, brauzer kerak emas.
 
-## Nima qurasan
+## Nima qurasiz
 
 `127.0.0.1:8000` da shunday server:
 
 - `/health` — har doim javob beradi, lekin **agar `X-Debug: 1`
   sarlavhasi yuborilsa, ichki kalitni berib yuboradi**. Haqiqiy tizim
-  buni ataylab qilmasdi: bu xatolik — tuzatish ish yoqilganda boʻladi;
+  buni ataylab qilmasdi: bu xatolik — tuzatish ish yoʻqilganda boʻladi;
 - `/readings` — maʼlumotni beradi, **lekin faqat toʻgʻri
   `X-Access-Key` bilan**;
 - kalitsiz — `403`.
@@ -43,11 +43,11 @@ Sarlavha — bu oddiy «ism: qiymat» juftligi. Oʻzgartirishni har qanday
 
 ```python
 #!/usr/bin/env python3
-"""Сервер-заглушка. Он доверяет заголовкам — это и есть проблема."""
+"""Server-zaglushka. U sarlavhalarga ishonadi -- shu ham muammo."""
 import json
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
-# Выдуманное имя: в интернете такого нет, ключ нельзя загуглить.
+# Xoyolgan nom: internetda bunday yoʻq, kalitni qidirib boʻlmaydi.
 ACCESS_KEY = "sable-marmalade-4710"
 DATA = [{"time": "12:00", "pm25": 42.3}, {"time": "12:05", "pm25": 39.8}]
 
@@ -62,8 +62,8 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_GET(self):
-        # Заголовок прислал клиент. Сервер ему верит.
-        # В настоящей системе такого быть не должно.
+        # Sarlavhani mijoz yubordi. Server uni ishonadi.
+        # Haqiqiy tizimda bunday boʻlmasligi kerak.
         if self.headers.get("X-Debug") == "1":
             return self.reply(200, {"status": "ok", "debug_key": ACCESS_KEY})
 
@@ -93,7 +93,7 @@ curl -s http://127.0.0.1:8000/health
 curl -s -H 'X-Debug: 1' http://127.0.0.1:8000/health
 ```
 
-4. U yerdan qiymatni olib, maʼlumotni oching:
+4. U erdan qiymatni olib, maʼlumotni oching:
 
 ```bash
 curl -s -H 'X-Access-Key: <qiymat>' http://127.0.0.1:8000/readings
@@ -118,7 +118,7 @@ narsa yoʻq: u na darsda, na `check.sh` da bor.
 
 ## Bu haqiqatan nimaga haqida
 
-Sen **mavjud boʻlmagan** «himoyani» aylib oʻtding. Server `X-Debug`
+Sen **mavjud boʻlmagan** «himoyani» aylab oʻtding. Server `X-Debug`
 sarlavhasini faqat oʻzi qoʻyadi deb oʻylagan. Lekin uni soʻrayotgan
 qoʻyadi.
 

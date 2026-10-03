@@ -1,8 +1,8 @@
-# SQL inyektsiyasi
+# SQL inʼektsiyasi
 
-## Buni nega bilish kerak
+## Buuni nega bilish kerak
 
-Sen server yozasan. U mijozdan kelgan ism boʻyicha odamni izlaydi.
+Sen server yozasiz. U mijozdan kelgan ism boʻyicha odamni izlaydi.
 Eng tabiiy yozuv shunday koʻrinadi:
 
 ```python
@@ -12,7 +12,7 @@ sql = "SELECT name, score FROM people WHERE name = '" + name + "'"
 Qator yopishtirilgan. `name` — mijoz yuborgan narsa, u soʻrov matniga
 **kod sifatida** kirib ketgan.
 
-## Hujumchi nima qiladi
+## Xujumchi nima qiladi
 
 Oddiy soʻrov: `marram` ni izlaydi, bitta qator qaytadi.
 
@@ -33,14 +33,14 @@ SELECT name, score FROM people WHERE name = ''
 UNION SELECT code, note FROM vault--
 ```
 
-Oxiridagi ikki chiziq qolganini kesib tashlaydi. Endi javobda `vault`
-jadvali bor — server uni koʻrsatmoqchi ham emas edi.
+Oxiridagi ikki chiziq qolganini kesadi. Endi javobda `vault` jadvali
+bor — server uni koʻrsatmoqchi ham emas edi.
 
 ## Bu qanday ishlaydi
 
-Sababi shuki, SQLite yoki Python ahmoq emas. Sababi shuki, **server
-maʼlumot bilan kodni ajratolmaydi**. Mijoz kiritishi maʼlumot boʻlishi
-kerak edi. Bu yerda u ifodaning bir qismiga aylandi.
+Sababi shundaki, SQLite yoki Python ahmoq emas. Sababi shundaki,
+**server maʼlumot bilan kodni ajratmaydi**. Mijoz kiritishi maʼlumot
+boʻlishi kerak edi. Bu erda u ifodaning bir qismiga aylandi.
 
 ## Nima uchun bu jiddiy
 
@@ -50,7 +50,8 @@ saytlarda bu eng koʻp uchraydigan dastur darajasidagi teshiklardan biri.
 
 ## Toʻgʻri yoʻli
 
-Qiymatni **parametr** sifatida berish kerak, matnning bir qismi emas:
+Qiymatni **parametr** sifatida berish kerak, matnning bir qismi
+sifatida emas:
 
 ```python
 rows = db.execute(
@@ -79,7 +80,7 @@ keltirilgan, mavzuning oʻzi shu uchta qatorda.
 
 ```python
 #!/usr/bin/env python3
-"""Уязвимый сервер. Запрос склеен из строки -- это и есть дыра."""
+"""Zaif server. Soʻrov satrdan yigʻilgan -- shu ham teshik."""
 import json
 import sqlite3
 from http.server import BaseHTTPRequestHandler, HTTPServer
@@ -90,7 +91,7 @@ PORT = 8000
 
 def query(name):
     db = sqlite3.connect("data.db")
-    # ДВАЖДЫ СПРОСИЛИ, КАК ЭТО ДЕЛАТЬ, И НИ РАЗУ НЕ СДЕЛАЛИ
+    # IKKI MARTA SURADI, QANDAY QILIShNI, VA IKKILASIDA HAM QILINMADI
     sql = "SELECT name, score FROM people WHERE name = '" + name + "'"
     rows = db.execute(sql).fetchall()
     db.close()
@@ -131,17 +132,17 @@ python3 srv.py
 Senga `data.db` beriladi: oltita ismli `people` jadvali va bitta
 qatorli `vault` jadvali — oʻquv kaliti.
 
-1. `/lookup?name=...` endpointi bilan `srv.py` yoz va satrdagi
+1. `/lookup?name=...` bilan `srv.py` yoz va yuqoridagi
    **yopishtirishni** ishlat. Bu xato emas, vazifa shu.
 2. Halol soʻrov yubor va bitta qatorni koʻr.
 3. `' OR '1'='1` yubor va qatorlarni san.
 4. `UNION` ni `vault` gacha choʻz va kalitni chiqar.
 5. `proof.txt` ga kalitning SHA-256 birinchi 12 belgisini yoz.
-6. `notes.md` da javob ber: **parametr bilan yopishtirish orasidagi
-   farq nimada aynan?**
+6. `notes.md` da javob ber: **parametr bilan yopishtirish oʻrtasidagi
+   farq aniq nimada?**
 
 ## Vazifa chegarasi
 
-Bazaning oʻz papkada, serverni oʻzing yozasan, manzil `127.0.0.1`.
+Bazaning oʻz papkada, serverni oʻzing yozasiz, manzil `127.0.0.1`.
 Boshqalarning saytlari tekshirilmaydi. Ruxsatsiz boshqa serverni
 tekshirish — bu mavzuning oʻquv maqsadi emas.

@@ -80,7 +80,7 @@ rows = db.execute("SELECT name, score FROM people").fetchall()
 
 ```python
 #!/usr/bin/env python3
-"""Уязвимый сервер. Запрос склеен из строки -- это и есть дыра."""
+"""Заиф сервер. Сўров сатрдан йиғилган -- шу ҳам тешик."""
 import json
 import sqlite3
 from http.server import BaseHTTPRequestHandler, HTTPServer
@@ -91,7 +91,7 @@ PORT = 8000
 
 def query(name):
     db = sqlite3.connect("data.db")
-    # ДВАЖДЫ СПРОСИЛИ, КАК ЭТО ДЕЛАТЬ, И НИ РАЗУ НЕ СДЕЛАЛИ
+    # ИККИ МАРТА СУРАДИ, ҚАНДАЙ ҚИЛИШНИ, ВА ИККИЛАСИДА ҲАМ ҚИЛИНМАДИ
     sql = "SELECT name, score FROM people WHERE name = '" + name + "'"
     rows = db.execute(sql).fetchall()
     db.close()
