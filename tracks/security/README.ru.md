@@ -46,6 +46,7 @@
 
 - [SQL-инъекция](level-1/01-sql-injection/ru.md)
 - [XSS: код исполняет чужой браузер](level-1/02-cross-site-scripting/ru.md)
+- [Выход за пределы своей папки](level-1/03-path-traversal/ru.md)
 
 ### S2. Продвинутый
 

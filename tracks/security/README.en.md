@@ -48,6 +48,7 @@ Authentication, access control, secrets in code.
 
 - [SQL injection](level-1/01-sql-injection/en.md)
 - [XSS: code runs in someone else's browser](level-1/02-cross-site-scripting/en.md)
+- [Getting outside your own folder](level-1/03-path-traversal/en.md)
 
 ### S2. Advanced
 

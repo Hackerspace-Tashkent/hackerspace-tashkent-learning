@@ -47,6 +47,7 @@
 
 - [SQL инъекцияси](level-1/01-sql-injection/uz-cyr.md)
 - [XSS: код бошқа браузерда бажарилади](level-1/02-cross-site-scripting/uz-cyr.md)
+- [Ўз папкасингиздан ташқарига чиқиш](level-1/03-path-traversal/uz-cyr.md)
 
 ### S2. Илғор
 
