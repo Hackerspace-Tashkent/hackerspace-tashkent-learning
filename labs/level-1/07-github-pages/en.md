@@ -43,13 +43,26 @@ failure is a Pages setting.
 
 Stop it with `Ctrl+C`.
 
-### 3. Publish
+### 3. Publish — pick one of two paths
 
-The file is already on `main`. Now **Settings → Pages → Source: Deploy from a
-branch**, branch `main`, folder `/ (root)`, save.
+**Path A: locally.** Works without a GitHub account. Leave the server
+from the previous step running and write its address into `PUBLISHED.md`:
 
-In a minute or three open the address GitHub shows you. It looks like
+```
+http://127.0.0.1:8000/index.html
+```
+
+The checker will fetch it and confirm the page answers.
+
+**Path B: publicly.** Needs a GitHub account. The file is already on
+`main`. Now **Settings → Pages → Source: Deploy from a branch**, branch
+`main`, folder `/ (root)`, save. In a minute or three open the address
+GitHub shows you. It looks like
 `https://your-username.github.io/repository-name/`.
+
+**Path B teaches more, but path A is a complete practice.** You can pass
+this without a GitHub account, and that is fine: the account can come
+later.
 
 ### 4. Write it down
 
