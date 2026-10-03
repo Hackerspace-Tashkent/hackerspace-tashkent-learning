@@ -20,7 +20,6 @@ SRV=""
 t() { case "$CHECK_LANG" in
   en)
     case "$1" in
-      db)   echo "the reviews.db fixture was created";;
       srv)  echo "the file srv.py exists";;
       run)  echo "the server answers over HTTP";;
       refl) echo "the review input comes back into the page";;
@@ -30,7 +29,6 @@ t() { case "$CHECK_LANG" in
     esac ;;
   uz-lat)
     case "$1" in
-      db)   echo "reviews.db bazasi tayyorlandi";;
       srv)  echo "srv.py fayli mavjud";;
       run)  echo "server HTTP orqali javob beradi";;
       refl) echo "izoh kiritmasi yana sahifaga qaytadi";;
@@ -40,7 +38,6 @@ t() { case "$CHECK_LANG" in
     esac ;;
   uz-cyr)
     case "$1" in
-      db)   echo "reviews.db базаси тайёрланди";;
       srv)  echo "srv.py файли мавжуд";;
       run)  echo "сарвер HTTP орқали жавоб беради";;
       refl) echo "изоҳ киритмаси яна саҳифага қайтади";;
@@ -50,7 +47,6 @@ t() { case "$CHECK_LANG" in
     esac ;;
   *)
     case "$1" in
-      db)   echo "база reviews.db создана фикстурой";;
       srv)  echo "файл srv.py существует";;
       run)  echo "сервер отвечает по HTTP";;
       refl) echo "ввод отзыва попадает обратно в страницу";;
@@ -85,11 +81,10 @@ free_port() {
   echo "$1"
 }
 
-# ─────────────────────────── 1. база ───────────────────────────
-[ -f "$DB" ]
-check "$?" "$(t db)"
+# Проверки базы здесь нет намеренно: базу создаёт фикстура, а не ученик.
+# В остальных практиках пустое состояние тоже даёт 0 -- так честнее.
 
-# ─────────────────────────── 2. srv.py ───────────────────────────
+# ─────────────────────────── 1. srv.py ───────────────────────────
 [ -f "$WORK/srv.py" ]
 check "$?" "$(t srv)"
 

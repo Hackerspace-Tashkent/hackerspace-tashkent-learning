@@ -77,14 +77,13 @@ print(hashlib.sha256(t.encode()).hexdigest()[:12])
 
 | | |
 |---|---|
-| 1 | the `reviews.db` fixture was created |
-| 2 | the file `srv.py` exists |
-| 3 | the server answers over HTTP |
-| 4 | the response contains unescaped review input |
-| 5 | the injected script reaches the page unescaped |
-| 6 | `proof.txt` holds the hash of the token you pulled out |
+| 1 | the file `srv.py` exists |
+| 2 | the server answers over HTTP |
+| 3 | the review input comes back into the page |
+| 4 | the payload arrives as a tag, not as text |
+| 5 | proof.txt holds the hash of the token you pulled out |
 
-Checks 4 and 5 run against **your** server: the checker sends a payload
+Checks 3 and 4 run against **your** server: the checker sends a payload
 and looks at what came back. It will not accept a different process on
 the same port.
 

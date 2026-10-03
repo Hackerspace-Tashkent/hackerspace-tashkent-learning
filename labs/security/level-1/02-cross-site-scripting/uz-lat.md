@@ -74,12 +74,11 @@ print(hashlib.sha256(t.encode()).hexdigest()[:12])
 
 | | |
 |---|---|
-| 1 | `reviews.db` bazasi tayyorlandi |
-| 2 | `srv.py` fayli mavjud |
-| 3 | server HTTP orqali javob beradi |
-| 4 | izoh kiritmasi yana sahifaga qaytadi |
-| 5 | yuklama matn emas, teg sifatida keladi |
-| 6 | `proof.txt` da chiqargan tokening xeshi bor |
+| 1 | `srv.py` fayli mavjud |
+| 2 | server HTTP orqali javob beradi |
+| 3 | izoh kiritmasi yana sahifaga qaytadi |
+| 4 | yuklama matn emas, teg sifatida keladi |
+| 5 | `proof.txt` da chiqargan tokening xeshi bor |
 
 4 va 5-tekshiruvlar **sening** serveringda o'tadi: tekshiruv yuklama
 yuboradi va javobga qaraydi. Boshqa processni qabul qilmaydi.
