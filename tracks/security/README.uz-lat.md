@@ -44,6 +44,7 @@ Autentifikatsiya, kirish nazorati, kod ichidagi kalitlar.
 **Yozilgan va tekshirilgan:**
 
 - [SQL inyektsiyasi](level-1/01-sql-injection/uz-lat.md)
+- [XSS: kod boshqa brauzerda bajariladi](level-1/02-cross-site-scripting/uz-lat.md)
 
 ### S2. Ilg'or
 

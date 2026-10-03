@@ -47,6 +47,7 @@ Authentication, access control, secrets in code.
 **Written and verified:**
 
 - [SQL injection](level-1/01-sql-injection/en.md)
+- [XSS: code runs in someone else's browser](level-1/02-cross-site-scripting/en.md)
 
 ### S2. Advanced
 
