@@ -418,6 +418,35 @@ def check_code_blocks_run(r):
                 os.unlink(tmp)
 
 
+
+def check_map_parity(r):
+    """Одинаковое число тем во всех README одного направления.
+
+    Карта безопасности дважды расходилась с реальностью: абзац о
+    прогрессе остался от момента, когда S1 был пуст, а uz-lat потерял
+    три темы S0. Внутри себя каждый файл был непротиворечив, поэтому
+    прежние проверки молчали.
+    """
+    for d in sorted(os.listdir("tracks")):
+        td = os.path.join("tracks", d)
+        if not os.path.isdir(td):
+            continue
+        files = {}
+        for name in sorted(os.listdir(td)):
+            if not re.fullmatch(r"README(\.[a-z-]+)?\.md", name):
+                continue
+            p = os.path.join(td, name)
+            text = open(os.path.join(ROOT, p), encoding="utf-8").read()
+            files[name] = len(re.findall(r"(?m)^- \[", text))
+        if len(files) < 2:
+            continue
+        counts = sorted(set(files.values()))
+        if len(counts) > 1:
+            r.error(
+                "%s/README.*.md" % d,
+                "в картах разное число тем: %s"
+                % ", ".join("%s=%d" % (k, v) for k, v in sorted(files.items())))
+
 def main():
     r = Report()
     check_encoding(r)
@@ -426,6 +455,7 @@ def main():
     check_readme_language(r)
     check_internal_links(r)
     check_structure_alignment(r)
+    check_map_parity(r)
     check_scripts(r)
     check_script_mixing(r)
     check_foreign_comments(r)

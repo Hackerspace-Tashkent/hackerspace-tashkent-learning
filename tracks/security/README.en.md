@@ -91,8 +91,9 @@ the answer is to understand it.
 
 ## What is not here yet
 
-Written and verified: level S0 — **four topics**, S1 — **one**.
+Written and verified: **nine topics** -- S0 four, S1 four, S2 one.
 
-Not written: S1, S2, S3. Not because it is hard, but because **not one
-person has gone through even S0**. The first topic has to be shown to
-work before the next floor goes up.
+Not written: JWT, cryptography, vulnerability review, dependency
+security, auditing, secrets in CI. Not because it is hard, but because
+**not one person has gone through even S0**. The first topic has to be
+shown to work before the next floor goes up.
