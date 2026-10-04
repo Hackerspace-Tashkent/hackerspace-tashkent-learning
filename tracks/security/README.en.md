@@ -51,6 +51,10 @@ Authentication, access control, secrets in code.
 - [Getting outside your own folder](level-1/03-path-traversal/en.md)
 - [A command the user wrote](level-1/04-command-injection/en.md)
 
+## Level 2
+
+- [A request you did not send](level-2/01-csrf/en.md)
+
 ### S2. Advanced
 
 The classic web vulnerabilities, each one on its own local server.

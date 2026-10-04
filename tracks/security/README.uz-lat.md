@@ -48,6 +48,10 @@ Autentifikatsiya, kirish nazorati, kod ichidagi kalitlar.
 - [Oʻz papkangizdan tashqariga chiqish](level-1/03-path-traversal/uz-lat.md)
 - [Foydalanuvchi yozgan buyruq](level-1/04-command-injection/uz-lat.md)
 
+## 2-daraja
+
+- [Siz yubormagan soʻrov](level-2/01-csrf/uz-lat.md)
+
 ### S2. Ilg'or
 
 Vebdagi klassik zaifliklar, har biri o'z lokal serverida.
