@@ -187,7 +187,11 @@ def check_scripts(r):
             r.error(name, "нет переменной WORK")
         if not re.search(r"\b[tT]\(\)\s*\{", text) and 't "' not in text:
             r.warn(name, "похоже, нет функции перевода")
-        checks = len(re.findall(r"(?m)^check\b", text))
+        # проверка может вызываться как check (по коду выхода $?) или как
+        # report (явный 1/0). Раньше считался только check, и практики,
+        # где большинство строк идёт через report, получали ложное
+        # "мало проверок" -- а настоящее предупреждение терялось в шуме.
+        checks = len(re.findall(r"(?m)^[ \t]*(check|report)\b", text))
         if checks == 0:
             r.error(name, "нет ни одной проверки")
         elif checks < 4:
